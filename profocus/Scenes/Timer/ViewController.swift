@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  profocus
-//
-//  Created by franklin melo on 14/02/22.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -32,4 +25,3 @@ class ViewController: UIViewController {
         ])
     }
 }
-

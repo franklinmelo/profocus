@@ -12,6 +12,8 @@
 		DA17BFF927BB06BA0047CEBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA17BFF827BB06BA0047CEBA /* ViewController.swift */; };
 		DA17BFFE27BB06BC0047CEBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA17BFFD27BB06BC0047CEBA /* Assets.xcassets */; };
 		DA17C00127BB06BC0047CEBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA17BFFF27BB06BC0047CEBA /* LaunchScreen.storyboard */; };
+		DAD7B89327C04E9B0076D4CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7B89227C04E9B0076D4CC /* LoginViewController.swift */; };
+		DAD7B89627C050850076D4CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD7B89527C050850076D4CC /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		DA17BFFD27BB06BC0047CEBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA17C00027BB06BC0047CEBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA17C00227BB06BC0047CEBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAD7B89227C04E9B0076D4CC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DAD7B89527C050850076D4CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAD7B89627C050850076D4CC /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,7 @@
 			children = (
 				DA17BFF327BB06BA0047CEBA /* profocus */,
 				DA17BFF227BB06BA0047CEBA /* Products */,
+				DAD7B89427C050850076D4CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +60,55 @@
 		DA17BFF327BB06BA0047CEBA /* profocus */ = {
 			isa = PBXGroup;
 			children = (
-				DA17BFF427BB06BA0047CEBA /* AppDelegate.swift */,
-				DA17BFF627BB06BA0047CEBA /* SceneDelegate.swift */,
-				DA17BFF827BB06BA0047CEBA /* ViewController.swift */,
+				DA17C00227BB06BC0047CEBA /* Info.plist */,
 				DA17BFFD27BB06BC0047CEBA /* Assets.xcassets */,
 				DA17BFFF27BB06BC0047CEBA /* LaunchScreen.storyboard */,
-				DA17C00227BB06BC0047CEBA /* Info.plist */,
+				DAD7B88E27C04C670076D4CC /* Resources */,
+				DAD7B88F27C04C970076D4CC /* Scenes */,
 			);
 			path = profocus;
+			sourceTree = "<group>";
+		};
+		DAD7B88E27C04C670076D4CC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DA17BFF427BB06BA0047CEBA /* AppDelegate.swift */,
+				DA17BFF627BB06BA0047CEBA /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DAD7B88F27C04C970076D4CC /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				DAD7B89127C04E870076D4CC /* Login */,
+				DAD7B89027C04E6D0076D4CC /* Timer */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		DAD7B89027C04E6D0076D4CC /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				DA17BFF827BB06BA0047CEBA /* ViewController.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		DAD7B89127C04E870076D4CC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DAD7B89227C04E9B0076D4CC /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		DAD7B89427C050850076D4CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DAD7B89527C050850076D4CC /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,6 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAD7B89327C04E9B0076D4CC /* LoginViewController.swift in Sources */,
 				DA17BFF927BB06BA0047CEBA /* ViewController.swift in Sources */,
 				DA17BFF527BB06BA0047CEBA /* AppDelegate.swift in Sources */,
 				DA17BFF727BB06BA0047CEBA /* SceneDelegate.swift in Sources */,
@@ -291,7 +339,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = franklinmelo.profocus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.franklinmelo.profocus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -320,7 +368,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = franklinmelo.profocus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.franklinmelo.profocus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
