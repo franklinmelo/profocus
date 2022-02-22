@@ -9,9 +9,14 @@
 /* Begin PBXBuildFile section */
 		DA17BFF527BB06BA0047CEBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA17BFF427BB06BA0047CEBA /* AppDelegate.swift */; };
 		DA17BFF727BB06BA0047CEBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA17BFF627BB06BA0047CEBA /* SceneDelegate.swift */; };
-		DA17BFF927BB06BA0047CEBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA17BFF827BB06BA0047CEBA /* ViewController.swift */; };
+		DA17BFF927BB06BA0047CEBA /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA17BFF827BB06BA0047CEBA /* TimerViewController.swift */; };
 		DA17BFFE27BB06BC0047CEBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA17BFFD27BB06BC0047CEBA /* Assets.xcassets */; };
 		DA17C00127BB06BC0047CEBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA17BFFF27BB06BC0047CEBA /* LaunchScreen.storyboard */; };
+		DA93A02927C4490500F6B322 /* Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA93A02727C4490500F6B322 /* Task.xcdatamodeld */; };
+		DA93A02B27C44BE400F6B322 /* TimerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A02A27C44BE400F6B322 /* TimerInteractor.swift */; };
+		DA93A02D27C44BEC00F6B322 /* TimerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A02C27C44BEC00F6B322 /* TimerPresenter.swift */; };
+		DA93A02F27C44C0200F6B322 /* TimerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A02E27C44C0200F6B322 /* TimerFactory.swift */; };
+		DA93A03127C44C1400F6B322 /* TimerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A03027C44C1400F6B322 /* TimerCoordinator.swift */; };
 		DAD7B89327C04E9B0076D4CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7B89227C04E9B0076D4CC /* LoginViewController.swift */; };
 		DAD7B89627C050850076D4CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD7B89527C050850076D4CC /* MapKit.framework */; };
 /* End PBXBuildFile section */
@@ -20,10 +25,15 @@
 		DA17BFF127BB06BA0047CEBA /* profocus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = profocus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA17BFF427BB06BA0047CEBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA17BFF627BB06BA0047CEBA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DA17BFF827BB06BA0047CEBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DA17BFF827BB06BA0047CEBA /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		DA17BFFD27BB06BC0047CEBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA17C00027BB06BC0047CEBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA17C00227BB06BC0047CEBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA93A02827C4490500F6B322 /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
+		DA93A02A27C44BE400F6B322 /* TimerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerInteractor.swift; sourceTree = "<group>"; };
+		DA93A02C27C44BEC00F6B322 /* TimerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPresenter.swift; sourceTree = "<group>"; };
+		DA93A02E27C44C0200F6B322 /* TimerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerFactory.swift; sourceTree = "<group>"; };
+		DA93A03027C44C1400F6B322 /* TimerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCoordinator.swift; sourceTree = "<group>"; };
 		DAD7B89227C04E9B0076D4CC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DAD7B89527C050850076D4CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -65,6 +75,7 @@
 				DA17BFFF27BB06BC0047CEBA /* LaunchScreen.storyboard */,
 				DAD7B88E27C04C670076D4CC /* Resources */,
 				DAD7B88F27C04C970076D4CC /* Scenes */,
+				DA93A02727C4490500F6B322 /* Task.xcdatamodeld */,
 			);
 			path = profocus;
 			sourceTree = "<group>";
@@ -90,7 +101,11 @@
 		DAD7B89027C04E6D0076D4CC /* Timer */ = {
 			isa = PBXGroup;
 			children = (
-				DA17BFF827BB06BA0047CEBA /* ViewController.swift */,
+				DA93A03027C44C1400F6B322 /* TimerCoordinator.swift */,
+				DA93A02E27C44C0200F6B322 /* TimerFactory.swift */,
+				DA93A02A27C44BE400F6B322 /* TimerInteractor.swift */,
+				DA93A02C27C44BEC00F6B322 /* TimerPresenter.swift */,
+				DA17BFF827BB06BA0047CEBA /* TimerViewController.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -181,9 +196,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA93A02B27C44BE400F6B322 /* TimerInteractor.swift in Sources */,
 				DAD7B89327C04E9B0076D4CC /* LoginViewController.swift in Sources */,
-				DA17BFF927BB06BA0047CEBA /* ViewController.swift in Sources */,
+				DA17BFF927BB06BA0047CEBA /* TimerViewController.swift in Sources */,
+				DA93A03127C44C1400F6B322 /* TimerCoordinator.swift in Sources */,
+				DA93A02D27C44BEC00F6B322 /* TimerPresenter.swift in Sources */,
 				DA17BFF527BB06BA0047CEBA /* AppDelegate.swift in Sources */,
+				DA93A02927C4490500F6B322 /* Task.xcdatamodeld in Sources */,
+				DA93A02F27C44C0200F6B322 /* TimerFactory.swift in Sources */,
 				DA17BFF727BB06BA0047CEBA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,6 +418,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DA93A02727C4490500F6B322 /* Task.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DA93A02827C4490500F6B322 /* Task.xcdatamodel */,
+			);
+			currentVersion = DA93A02827C4490500F6B322 /* Task.xcdatamodel */;
+			path = Task.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DA17BFE927BB06BA0047CEBA /* Project object */;
 }
