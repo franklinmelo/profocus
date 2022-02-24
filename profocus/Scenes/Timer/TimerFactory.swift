@@ -3,12 +3,11 @@ import UIKit
 
 final class TimerFactory {
     func make() -> UIViewController {
-        let interactor = TimerInteractor()
-        let presenter = TimerPresenter()
-        let viewController = TimerViewController(interactor: interactor)
         let coodinator = TimerCoodinator()
+        let presenter = TimerPresenter(coordinator: coodinator)
+        let interactor = TimerInteractor(presenter: presenter)
+        let viewController = TimerViewController(interactor: interactor)
         
-        interactor.presenter = presenter
         presenter.viewController = viewController
         coodinator.viewController = viewController
         

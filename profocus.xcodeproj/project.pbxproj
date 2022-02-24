@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA13CD0C27C6FCFB0084FAB8 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13CD0B27C6FCFB0084FAB8 /* UserModel.swift */; };
 		DA17BFF527BB06BA0047CEBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA17BFF427BB06BA0047CEBA /* AppDelegate.swift */; };
 		DA17BFF727BB06BA0047CEBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA17BFF627BB06BA0047CEBA /* SceneDelegate.swift */; };
 		DA17BFF927BB06BA0047CEBA /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA17BFF827BB06BA0047CEBA /* TimerViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA13CD0B27C6FCFB0084FAB8 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		DA17BFF127BB06BA0047CEBA /* profocus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = profocus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA17BFF427BB06BA0047CEBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA17BFF627BB06BA0047CEBA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA13CD0A27C6FCD80084FAB8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DA13CD0B27C6FCFB0084FAB8 /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		DA17BFE827BB06BA0047CEBA = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +102,7 @@
 		DAD7B88F27C04C970076D4CC /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DA13CD0A27C6FCD80084FAB8 /* Models */,
 				DAD7B89127C04E870076D4CC /* Login */,
 				DAD7B89027C04E6D0076D4CC /* Timer */,
 			);
@@ -204,6 +215,7 @@
 				DA17BFF527BB06BA0047CEBA /* AppDelegate.swift in Sources */,
 				DA93A02927C4490500F6B322 /* Task.xcdatamodeld in Sources */,
 				DA93A02F27C44C0200F6B322 /* TimerFactory.swift in Sources */,
+				DA13CD0C27C6FCFB0084FAB8 /* UserModel.swift in Sources */,
 				DA17BFF727BB06BA0047CEBA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
