@@ -13,6 +13,12 @@
 		DA17BFF927BB06BA0047CEBA /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA17BFF827BB06BA0047CEBA /* TimerViewController.swift */; };
 		DA17BFFE27BB06BC0047CEBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA17BFFD27BB06BC0047CEBA /* Assets.xcassets */; };
 		DA17C00127BB06BC0047CEBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA17BFFF27BB06BC0047CEBA /* LaunchScreen.storyboard */; };
+		DA8391DA27C8459F00071450 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8391D927C8459F00071450 /* TabBar.swift */; };
+		DA8391DD27C8508300071450 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8391DC27C8508300071450 /* TasksViewController.swift */; };
+		DA8391DF27C8509500071450 /* TasksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8391DE27C8509500071450 /* TasksInteractor.swift */; };
+		DA8391E127C850A000071450 /* TasksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8391E027C850A000071450 /* TasksPresenter.swift */; };
+		DA8391E327C850B100071450 /* TasksCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8391E227C850B100071450 /* TasksCoordinator.swift */; };
+		DA8391E527C850CE00071450 /* TasksFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8391E427C850CE00071450 /* TasksFactory.swift */; };
 		DA93A02927C4490500F6B322 /* Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA93A02727C4490500F6B322 /* Task.xcdatamodeld */; };
 		DA93A02B27C44BE400F6B322 /* TimerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A02A27C44BE400F6B322 /* TimerInteractor.swift */; };
 		DA93A02D27C44BEC00F6B322 /* TimerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A02C27C44BEC00F6B322 /* TimerPresenter.swift */; };
@@ -31,6 +37,12 @@
 		DA17BFFD27BB06BC0047CEBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA17C00027BB06BC0047CEBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA17C00227BB06BC0047CEBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA8391D927C8459F00071450 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		DA8391DC27C8508300071450 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		DA8391DE27C8509500071450 /* TasksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksInteractor.swift; sourceTree = "<group>"; };
+		DA8391E027C850A000071450 /* TasksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksPresenter.swift; sourceTree = "<group>"; };
+		DA8391E227C850B100071450 /* TasksCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksCoordinator.swift; sourceTree = "<group>"; };
+		DA8391E427C850CE00071450 /* TasksFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksFactory.swift; sourceTree = "<group>"; };
 		DA93A02827C4490500F6B322 /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
 		DA93A02A27C44BE400F6B322 /* TimerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerInteractor.swift; sourceTree = "<group>"; };
 		DA93A02C27C44BEC00F6B322 /* TimerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPresenter.swift; sourceTree = "<group>"; };
@@ -90,11 +102,24 @@
 			path = profocus;
 			sourceTree = "<group>";
 		};
+		DA8391DB27C8506300071450 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				DA8391DC27C8508300071450 /* TasksViewController.swift */,
+				DA8391DE27C8509500071450 /* TasksInteractor.swift */,
+				DA8391E027C850A000071450 /* TasksPresenter.swift */,
+				DA8391E227C850B100071450 /* TasksCoordinator.swift */,
+				DA8391E427C850CE00071450 /* TasksFactory.swift */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
 		DAD7B88E27C04C670076D4CC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				DA17BFF427BB06BA0047CEBA /* AppDelegate.swift */,
 				DA17BFF627BB06BA0047CEBA /* SceneDelegate.swift */,
+				DA8391D927C8459F00071450 /* TabBar.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -102,8 +127,9 @@
 		DAD7B88F27C04C970076D4CC /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				DA13CD0A27C6FCD80084FAB8 /* Models */,
 				DAD7B89127C04E870076D4CC /* Login */,
+				DA13CD0A27C6FCD80084FAB8 /* Models */,
+				DA8391DB27C8506300071450 /* Tasks */,
 				DAD7B89027C04E6D0076D4CC /* Timer */,
 			);
 			path = Scenes;
@@ -212,11 +238,17 @@
 				DA17BFF927BB06BA0047CEBA /* TimerViewController.swift in Sources */,
 				DA93A03127C44C1400F6B322 /* TimerCoordinator.swift in Sources */,
 				DA93A02D27C44BEC00F6B322 /* TimerPresenter.swift in Sources */,
+				DA8391DD27C8508300071450 /* TasksViewController.swift in Sources */,
 				DA17BFF527BB06BA0047CEBA /* AppDelegate.swift in Sources */,
+				DA8391E327C850B100071450 /* TasksCoordinator.swift in Sources */,
+				DA8391E127C850A000071450 /* TasksPresenter.swift in Sources */,
 				DA93A02927C4490500F6B322 /* Task.xcdatamodeld in Sources */,
 				DA93A02F27C44C0200F6B322 /* TimerFactory.swift in Sources */,
+				DA8391E527C850CE00071450 /* TasksFactory.swift in Sources */,
+				DA8391DA27C8459F00071450 /* TabBar.swift in Sources */,
 				DA13CD0C27C6FCFB0084FAB8 /* UserModel.swift in Sources */,
 				DA17BFF727BB06BA0047CEBA /* SceneDelegate.swift in Sources */,
+				DA8391DF27C8509500071450 /* TasksInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

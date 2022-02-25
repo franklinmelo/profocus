@@ -168,10 +168,12 @@ final class TimerViewController: UIViewController {
                                 withTextField: true)
         
         let alertAction = UIAlertAction(title: "Iniciar", style: .default) { [unowned alert] _ in
-            let answer = alert.textFields?[0]
-            DispatchQueue.main.async {
-                self.timerTitle.text = answer?.text ?? ""
-                self.interactor?.startTimer()
+            guard let answer = alert.textFields?[0].text else { return }
+            if !answer.isEmpty {
+                DispatchQueue.main.async {
+                    self.timerTitle.text = answer
+                    self.interactor?.startTimer()
+                }
             }
         }
         alert.addAction(alertAction)
