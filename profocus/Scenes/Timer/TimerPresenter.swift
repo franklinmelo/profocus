@@ -10,9 +10,9 @@ protocol TimerPresenting: AnyObject {
 
 final class TimerPresenter: TimerPresenting {
     weak var viewController: TimerDisplaying?
-    private var coordinator: TimerCoodinating?
+    private var coordinator: TimerCoordinating?
     
-    init(coordinator: TimerCoodinating) {
+    init(coordinator: TimerCoordinating) {
         self.coordinator = coordinator
     }
     

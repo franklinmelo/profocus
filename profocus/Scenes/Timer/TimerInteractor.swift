@@ -1,9 +1,11 @@
+import CoreData
 import Foundation
+import UIKit
 
 protocol TimerInterecting: AnyObject {
     func getUserInfos()
     func startTimer()
-    func stopTimer()
+    func stopTimer(with taskName: String)
 }
 
 final class TimerInteractor: TimerInterecting {
@@ -30,8 +32,11 @@ final class TimerInteractor: TimerInterecting {
                                      repeats: true)
     }
     
-    func stopTimer() {
+    func stopTimer(with taskName: String) {
         presenter?.presentStartTimer()
+        save(taskMin: timerCountMin,
+             taskSec: timerCountSec,
+             taskName: taskName)
         timer?.invalidate()
         timerCountSec = 0
         timerCountMin = 0
@@ -48,5 +53,26 @@ final class TimerInteractor: TimerInterecting {
         }
         let totalTime = String(format: "%02d:%02d", timerCountMin, timerCountSec)
         presenter?.presentTimer(with: totalTime)
+    }
+    
+    private func save(taskMin: Int, taskSec: Int, taskName: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        guard let entity = NSEntityDescription.entity(forEntityName: "Task", in: managedContext) else { return }
+        
+        let task = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        task.setValue(taskMin, forKey: "timeMin")
+        task.setValue(taskSec, forKey: "timeSec")
+        task.setValue(taskName, forKey: "name")
+        task.setValue(Date().timeIntervalSince1970, forKey: "createdAt")
+        
+        do {
+            try managedContext.save()
+        } catch {
+            print("Could not save. \(error)")
+        }
     }
 }

@@ -40,10 +40,6 @@ final class TaskCell: UITableViewCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            contentView.heightAnchor.constraint(equalToConstant: 48)
-        ])
-        
-        NSLayoutConstraint.activate([
             taskTitle.topAnchor.constraint(equalTo: contentView.topAnchor),
             taskTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             taskTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24)

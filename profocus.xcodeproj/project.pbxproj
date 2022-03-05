@@ -27,7 +27,6 @@
 		DAD7B89327C04E9B0076D4CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7B89227C04E9B0076D4CC /* LoginViewController.swift */; };
 		DAD7B89627C050850076D4CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD7B89527C050850076D4CC /* MapKit.framework */; };
 		DAD95EB327D17EB90067A653 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD95EB227D17EB90067A653 /* TaskCell.swift */; };
-		DAD95EB527D17ED10067A653 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD95EB427D17ED10067A653 /* TaskModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +52,6 @@
 		DAD7B89227C04E9B0076D4CC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DAD7B89527C050850076D4CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DAD95EB227D17EB90067A653 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
-		DAD95EB427D17ED10067A653 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				DA13CD0B27C6FCFB0084FAB8 /* UserModel.swift */,
-				DAD95EB427D17ED10067A653 /* TaskModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,7 +256,6 @@
 				DA8391E127C850A000071450 /* TasksPresenter.swift in Sources */,
 				DA93A02927C4490500F6B322 /* Task.xcdatamodeld in Sources */,
 				DA93A02F27C44C0200F6B322 /* TimerFactory.swift in Sources */,
-				DAD95EB527D17ED10067A653 /* TaskModel.swift in Sources */,
 				DA8391E527C850CE00071450 /* TasksFactory.swift in Sources */,
 				DA8391DA27C8459F00071450 /* TabBar.swift in Sources */,
 				DA13CD0C27C6FCFB0084FAB8 /* UserModel.swift in Sources */,

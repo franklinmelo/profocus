@@ -1,17 +1,14 @@
+import CoreData
 import Foundation
 import UIKit
 
-protocol TasksDisplaying: AnyObject {}
+protocol TasksDisplaying: AnyObject {
+    func displayTasks(task: [NSManagedObject])
+}
 
 final class TasksViewController: UIViewController {
-    
-    private let test: [TaskModel] = [.init(name: "Task 1", time: Date().timeIntervalSince1970),
-                                     .init(name: "Task 2", time: Date().timeIntervalSince1970),
-                                     .init(name: "Task 3", time: Date().timeIntervalSince1970),
-                                     .init(name: "Task 4", time: Date().timeIntervalSince1970),
-                                     .init(name: "Task 5", time: Date().timeIntervalSince1970)]
-    
     private var interactor: TasksInteracting?
+    private var tasks: [NSManagedObject] = []
     
     private let searchController = UISearchController(searchResultsController: nil)
     private lazy var tableView: UITableView = {
@@ -20,7 +17,7 @@ final class TasksViewController: UIViewController {
         $0.delegate = self
         $0.dataSource = self
         $0.register(TaskCell.self, forCellReuseIdentifier: "TaskCell")
-        $0.backgroundColor = .clear
+        $0.backgroundColor = .systemGray4
         $0.showsVerticalScrollIndicator = false
         $0.showsHorizontalScrollIndicator = false
         $0.layer.cornerRadius = 5
@@ -43,6 +40,11 @@ final class TasksViewController: UIViewController {
         setupConstraints()
         configureViews()
         setupNavigation()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        interactor?.getTasks()
     }
     
     private func setupViews() {
@@ -71,11 +73,16 @@ final class TasksViewController: UIViewController {
     }
 }
 
-extension TasksViewController: TasksDisplaying {}
+extension TasksViewController: TasksDisplaying {
+    func displayTasks(task: [NSManagedObject]) {
+        tasks = task
+        tableView.reloadData()
+    }
+}
 
 extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        test.count
+        tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,23 +91,40 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let task = test[indexPath.row]
+        let task = tasks[indexPath.row]
         taskCell.selectionStyle = .none
-        taskCell.setTitle(with: task.name)
+        taskCell.setTitle(with: task.value(forKey: "name") as? String ?? "" )
         
         return taskCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(test[indexPath.row])
+        interactor?.handlerTaskData(task: tasks[indexPath.row])
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        48
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deletAction = UIContextualAction(style: .destructive,
-                                             title: "Apagar") { _,_,_ in
-            print("APAGADO")
+                                             title: "Apagar") { [weak self] _,_,_ in
+            self?.showDeleteAlert(indexPath: indexPath.row)
         }
         
         return .init(actions: [deletAction])
+    }
+    
+    private func showDeleteAlert(indexPath: Int) {
+        let alert = UIAlertController(title: "Deseja realmente apagar essa tarefa?",
+                                      message: "Uma vez apagado a ação não poderá ser desfeita",
+                                      preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Sim", style: .destructive, handler: {_ in
+            self.interactor?.deletTask(object: self.tasks[indexPath])
+        })
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
     }
 }

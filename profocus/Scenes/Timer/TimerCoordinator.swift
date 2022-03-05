@@ -1,11 +1,11 @@
 import Foundation
 import UIKit
 
-protocol TimerCoodinating: AnyObject {
+protocol TimerCoordinating: AnyObject {
     func doSomeThing()
 }
 
-final class TimerCoodinator: TimerCoodinating {
+final class TimerCoordinator: TimerCoordinating {
     weak var viewController: UIViewController?
     
     func doSomeThing() {}

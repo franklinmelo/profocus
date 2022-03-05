@@ -185,8 +185,8 @@ final class TimerViewController: UIViewController {
     private func didTapStop() {
         let alertAction: (UIAlertAction) -> Void = {_ in
             DispatchQueue.main.async {
+                self.interactor?.stopTimer(with: self.timerTitle.text ?? "")
                 self.timerTitle.text = ""
-                self.interactor?.stopTimer()
             }
         }
         let alert = createAlert(title: "Deseja realmente parar?",
