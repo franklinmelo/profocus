@@ -6,11 +6,13 @@ protocol TasksInteracting: AnyObject {
     func getTasks()
     func deletTask(object: NSManagedObject)
     func handlerTaskData(task: NSManagedObject)
+    func filterTasks(for name: String)
 }
 
 final class TasksInteractor: TasksInteracting {
     private var presenter: TasksPresenting?
     private var tasks: [NSManagedObject] = []
+    private var filteredTasks: [NSManagedObject] = []
     
     init(presenter: TasksPresenting) {
         self.presenter = presenter
@@ -48,5 +50,14 @@ final class TasksInteractor: TasksInteracting {
     
     func handlerTaskData(task: NSManagedObject) {
         presenter?.presentTaskData(with: task)
+    }
+    
+    func filterTasks(for name: String) {
+        filteredTasks = tasks.filter { (task: NSManagedObject) -> Bool in
+            let taskName = task.value(forKey: "name") as? String ?? ""
+            return taskName.contains(name.lowercased())
+        }
+        
+        presenter?.presentFilteredTasks(tasks: filteredTasks)
     }
 }

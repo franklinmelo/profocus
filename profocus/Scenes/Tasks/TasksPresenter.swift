@@ -4,6 +4,7 @@ import Foundation
 protocol TasksPresenting: AnyObject {
     func presentTasks(with task: [NSManagedObject])
     func presentTaskData(with task: NSManagedObject)
+    func presentFilteredTasks(tasks: [NSManagedObject])
 }
 
 final class TasksPresenter: TasksPresenting {
@@ -24,5 +25,9 @@ final class TasksPresenter: TasksPresenting {
         let taskSec = task.value(forKey: "timeSec") as? Int ?? 0
         let taskMessage = "O tempo de foco dessa tarefa foi de \(taskMin)min e \(taskSec)sec"
         coordinator.showTaskInfo(title: taskName, message: taskMessage)
+    }
+    
+    func presentFilteredTasks(tasks: [NSManagedObject]) {
+        viewController?.displayFilteredTasks(tasks: tasks)
     }
 }

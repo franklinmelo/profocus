@@ -4,25 +4,40 @@ import UIKit
 
 protocol TasksDisplaying: AnyObject {
     func displayTasks(task: [NSManagedObject])
+    func displayFilteredTasks(tasks: [NSManagedObject])
 }
 
 final class TasksViewController: UIViewController {
     private var interactor: TasksInteracting?
     private var tasks: [NSManagedObject] = []
+    private var filteredTasks: [NSManagedObject] = []
     
-    private let searchController = UISearchController(searchResultsController: nil)
+    private let searchController: UISearchController = {
+        $0.searchBar.placeholder = "Busque tarefas"
+        $0.hidesNavigationBarDuringPresentation = false
+        return $0
+    }(UISearchController(searchResultsController: nil))
+    
     private lazy var tableView: UITableView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.separatorColor = .systemGray
         $0.delegate = self
         $0.dataSource = self
         $0.register(TaskCell.self, forCellReuseIdentifier: "TaskCell")
-        $0.backgroundColor = .systemGray4
+        $0.backgroundColor = .clear
         $0.showsVerticalScrollIndicator = false
         $0.showsHorizontalScrollIndicator = false
         $0.layer.cornerRadius = 5
         return $0
     }(UITableView())
+    
+    private var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    private var isFiltering: Bool {
+        return searchController.isActive && !isSearchBarEmpty
+    }
     
     init(interactor: TasksInteracting) {
         self.interactor = interactor
@@ -62,57 +77,14 @@ final class TasksViewController: UIViewController {
     
     private func configureViews() {
         tableView.tableHeaderView = UIView()
+        searchController.searchResultsUpdater = self
     }
     
     private func setupNavigation() {
         title = "Tarefas diárias"
         navigationController?.navigationBar.prefersLargeTitles = true
-        searchController.searchBar.placeholder = "Busque tarefas"
+        navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
-        navigationItem.searchController?.hidesNavigationBarDuringPresentation = false
-    }
-}
-
-extension TasksViewController: TasksDisplaying {
-    func displayTasks(task: [NSManagedObject]) {
-        tasks = task
-        tableView.reloadData()
-    }
-}
-
-extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tasks.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskCell
-        guard let taskCell = cell else {
-            return UITableViewCell()
-        }
-        
-        let task = tasks[indexPath.row]
-        taskCell.selectionStyle = .none
-        taskCell.setTitle(with: task.value(forKey: "name") as? String ?? "" )
-        
-        return taskCell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        interactor?.handlerTaskData(task: tasks[indexPath.row])
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        48
-    }
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deletAction = UIContextualAction(style: .destructive,
-                                             title: "Apagar") { [weak self] _,_,_ in
-            self?.showDeleteAlert(indexPath: indexPath.row)
-        }
-        
-        return .init(actions: [deletAction])
     }
     
     private func showDeleteAlert(indexPath: Int) {
@@ -126,5 +98,66 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
         alert.addAction(confirmAction)
         alert.addAction(cancelAction)
         present(alert, animated: true)
+    }
+}
+
+extension TasksViewController: TasksDisplaying {
+    func displayTasks(task: [NSManagedObject]) {
+        tasks = task
+        tableView.reloadData()
+    }
+    
+    func displayFilteredTasks(tasks: [NSManagedObject]) {
+        filteredTasks = tasks
+        tableView.reloadData()
+    }
+}
+
+extension TasksViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+        interactor?.filterTasks(for: searchText)
+    }
+}
+
+extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+            return filteredTasks.count
+        }
+        return tasks.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskCell
+        guard let taskCell = cell else {
+            return UITableViewCell()
+        }
+        
+        var task: NSManagedObject
+        task = isFiltering ? filteredTasks[indexPath.row] : tasks[indexPath.row]
+        taskCell.selectionStyle = .none
+        taskCell.setTitle(with: task.value(forKey: "name") as? String ?? "" )
+        
+        return taskCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var task: NSManagedObject
+        task = isFiltering ? filteredTasks[indexPath.row] : tasks[indexPath.row]
+        interactor?.handlerTaskData(task: task)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        48
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deletAction = UIContextualAction(style: .destructive,
+                                             title: "Apagar") { [weak self] _,_,_ in
+            self?.showDeleteAlert(indexPath: indexPath.row)
+        }
+        
+        return .init(actions: [deletAction])
     }
 }
