@@ -14,7 +14,7 @@ class TabBar: UITabBarController {
         viewControllers = [
             createViewController(rootViewController: TimerFactory().make(), tabIcon: UIImage(systemName: "timer"), tabTitle: "Timer"),
             createViewController(rootViewController: TasksFactory().make(), tabIcon: UIImage(systemName: "list.bullet"), tabTitle: "Tarefas"),
-            createViewController(rootViewController: LoginViewController(), tabIcon: UIImage(systemName: "chart.bar.xaxis"), tabTitle: "Resultados")
+            createViewController(rootViewController: AnalyticsFactory().make(), tabIcon: UIImage(systemName: "chart.bar.xaxis"), tabTitle: "Resultados")
         ]
     }
     

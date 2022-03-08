@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE022002945E2CFE352BAC9F /* Pods_profocus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B6EA8E6C42596949D1A2A8 /* Pods_profocus.framework */; };
 		DA13CD0C27C6FCFB0084FAB8 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA13CD0B27C6FCFB0084FAB8 /* UserModel.swift */; };
 		DA17BFF527BB06BA0047CEBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA17BFF427BB06BA0047CEBA /* AppDelegate.swift */; };
 		DA17BFF727BB06BA0047CEBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA17BFF627BB06BA0047CEBA /* SceneDelegate.swift */; };
 		DA17BFF927BB06BA0047CEBA /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA17BFF827BB06BA0047CEBA /* TimerViewController.swift */; };
 		DA17BFFE27BB06BC0047CEBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA17BFFD27BB06BC0047CEBA /* Assets.xcassets */; };
 		DA17C00127BB06BC0047CEBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA17BFFF27BB06BC0047CEBA /* LaunchScreen.storyboard */; };
+		DA40A3FA27D80E5700892E10 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A3F927D80E5700892E10 /* AnalyticsViewController.swift */; };
+		DA40A3FC27D80E6D00892E10 /* AnalyticsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A3FB27D80E6D00892E10 /* AnalyticsInteractor.swift */; };
+		DA40A3FE27D80E7600892E10 /* AnalyticsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A3FD27D80E7600892E10 /* AnalyticsPresenter.swift */; };
+		DA40A40027D80E8D00892E10 /* AnalyticsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A3FF27D80E8D00892E10 /* AnalyticsFactory.swift */; };
 		DA8391DA27C8459F00071450 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8391D927C8459F00071450 /* TabBar.swift */; };
 		DA8391DD27C8508300071450 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8391DC27C8508300071450 /* TasksViewController.swift */; };
 		DA8391DF27C8509500071450 /* TasksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8391DE27C8509500071450 /* TasksInteractor.swift */; };
@@ -30,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13B6EA8E6C42596949D1A2A8 /* Pods_profocus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_profocus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92D5E515F67AA77205EF6EC0 /* Pods-profocus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-profocus.release.xcconfig"; path = "Target Support Files/Pods-profocus/Pods-profocus.release.xcconfig"; sourceTree = "<group>"; };
 		DA13CD0B27C6FCFB0084FAB8 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		DA17BFF127BB06BA0047CEBA /* profocus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = profocus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA17BFF427BB06BA0047CEBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +45,10 @@
 		DA17BFFD27BB06BC0047CEBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA17C00027BB06BC0047CEBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA17C00227BB06BC0047CEBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA40A3F927D80E5700892E10 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
+		DA40A3FB27D80E6D00892E10 /* AnalyticsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsInteractor.swift; sourceTree = "<group>"; };
+		DA40A3FD27D80E7600892E10 /* AnalyticsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPresenter.swift; sourceTree = "<group>"; };
+		DA40A3FF27D80E8D00892E10 /* AnalyticsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsFactory.swift; sourceTree = "<group>"; };
 		DA8391D927C8459F00071450 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		DA8391DC27C8508300071450 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		DA8391DE27C8509500071450 /* TasksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksInteractor.swift; sourceTree = "<group>"; };
@@ -52,6 +63,7 @@
 		DAD7B89227C04E9B0076D4CC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DAD7B89527C050850076D4CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DAD95EB227D17EB90067A653 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		E44D13C451E02AB2623B3FA2 /* Pods-profocus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-profocus.debug.xcconfig"; path = "Target Support Files/Pods-profocus/Pods-profocus.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +72,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAD7B89627C050850076D4CC /* MapKit.framework in Frameworks */,
+				BE022002945E2CFE352BAC9F /* Pods_profocus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C93E8A8A14B5F8A7EED3935 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E44D13C451E02AB2623B3FA2 /* Pods-profocus.debug.xcconfig */,
+				92D5E515F67AA77205EF6EC0 /* Pods-profocus.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DA13CD0A27C6FCD80084FAB8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +102,7 @@
 				DA17BFF327BB06BA0047CEBA /* profocus */,
 				DA17BFF227BB06BA0047CEBA /* Products */,
 				DAD7B89427C050850076D4CC /* Frameworks */,
+				6C93E8A8A14B5F8A7EED3935 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +125,17 @@
 				DA93A02727C4490500F6B322 /* Task.xcdatamodeld */,
 			);
 			path = profocus;
+			sourceTree = "<group>";
+		};
+		DA40A3F827D80E3700892E10 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				DA40A3F927D80E5700892E10 /* AnalyticsViewController.swift */,
+				DA40A3FB27D80E6D00892E10 /* AnalyticsInteractor.swift */,
+				DA40A3FD27D80E7600892E10 /* AnalyticsPresenter.swift */,
+				DA40A3FF27D80E8D00892E10 /* AnalyticsFactory.swift */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 		DA8391DB27C8506300071450 /* Tasks */ = {
@@ -130,6 +164,7 @@
 		DAD7B88F27C04C970076D4CC /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DA40A3F827D80E3700892E10 /* Analytics */,
 				DAD7B89127C04E870076D4CC /* Login */,
 				DA13CD0A27C6FCD80084FAB8 /* Models */,
 				DA8391DB27C8506300071450 /* Tasks */,
@@ -162,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				DAD7B89527C050850076D4CC /* MapKit.framework */,
+				13B6EA8E6C42596949D1A2A8 /* Pods_profocus.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -181,9 +217,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA17C00527BB06BC0047CEBA /* Build configuration list for PBXNativeTarget "profocus" */;
 			buildPhases = (
+				73E729FD47D0B7CA3EC9F8DC /* [CP] Check Pods Manifest.lock */,
 				DA17BFED27BB06BA0047CEBA /* Sources */,
 				DA17BFEE27BB06BA0047CEBA /* Frameworks */,
 				DA17BFEF27BB06BA0047CEBA /* Resources */,
+				09FAFF7FC8BC48AD87F31035 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -239,6 +277,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		09FAFF7FC8BC48AD87F31035 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-profocus/Pods-profocus-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-profocus/Pods-profocus-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-profocus/Pods-profocus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73E729FD47D0B7CA3EC9F8DC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-profocus-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DA17BFED27BB06BA0047CEBA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -249,18 +329,22 @@
 				DAD7B89327C04E9B0076D4CC /* LoginViewController.swift in Sources */,
 				DA17BFF927BB06BA0047CEBA /* TimerViewController.swift in Sources */,
 				DA93A03127C44C1400F6B322 /* TimerCoordinator.swift in Sources */,
+				DA40A40027D80E8D00892E10 /* AnalyticsFactory.swift in Sources */,
 				DA93A02D27C44BEC00F6B322 /* TimerPresenter.swift in Sources */,
 				DA8391DD27C8508300071450 /* TasksViewController.swift in Sources */,
 				DA17BFF527BB06BA0047CEBA /* AppDelegate.swift in Sources */,
 				DA8391E327C850B100071450 /* TasksCoordinator.swift in Sources */,
 				DA8391E127C850A000071450 /* TasksPresenter.swift in Sources */,
 				DA93A02927C4490500F6B322 /* Task.xcdatamodeld in Sources */,
+				DA40A3FA27D80E5700892E10 /* AnalyticsViewController.swift in Sources */,
 				DA93A02F27C44C0200F6B322 /* TimerFactory.swift in Sources */,
 				DA8391E527C850CE00071450 /* TasksFactory.swift in Sources */,
 				DA8391DA27C8459F00071450 /* TabBar.swift in Sources */,
 				DA13CD0C27C6FCFB0084FAB8 /* UserModel.swift in Sources */,
 				DA17BFF727BB06BA0047CEBA /* SceneDelegate.swift in Sources */,
+				DA40A3FC27D80E6D00892E10 /* AnalyticsInteractor.swift in Sources */,
 				DA8391DF27C8509500071450 /* TasksInteractor.swift in Sources */,
+				DA40A3FE27D80E7600892E10 /* AnalyticsPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +480,7 @@
 		};
 		DA17C00627BB06BC0047CEBA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E44D13C451E02AB2623B3FA2 /* Pods-profocus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -425,6 +510,7 @@
 		};
 		DA17C00727BB06BC0047CEBA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92D5E515F67AA77205EF6EC0 /* Pods-profocus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
