@@ -1,10 +1,4 @@
-//
-//  SceneDelegate.swift
-//  profocus
-//
-//  Created by franklin melo on 14/02/22.
-//
-
+import AuthenticationServices
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -20,7 +14,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = TabBar()
+        
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let userID = UserDefaults.standard.value(forKey: "userID") as? String
+        appleIDProvider.getCredentialState(forUserID: userID ?? "") { (credentialState, error) in
+            switch credentialState {
+            case .authorized:
+                DispatchQueue.main.async {
+                    self.window?.rootViewController = TabBar()
+                }
+            case .revoked, .notFound:
+                DispatchQueue.main.async {
+                    self.window?.rootViewController = LoginFactory().make()
+                }
+            default:
+                break
+            }
+        }
+
         window?.makeKeyAndVisible()
     }
 

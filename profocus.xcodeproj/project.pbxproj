@@ -32,6 +32,10 @@
 		DAD7B89327C04E9B0076D4CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7B89227C04E9B0076D4CC /* LoginViewController.swift */; };
 		DAD7B89627C050850076D4CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD7B89527C050850076D4CC /* MapKit.framework */; };
 		DAD95EB327D17EB90067A653 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD95EB227D17EB90067A653 /* TaskCell.swift */; };
+		DAEA386927DFF3AE00152ECE /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEA386827DFF3AE00152ECE /* LoginInteractor.swift */; };
+		DAEA386B27DFF3B800152ECE /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEA386A27DFF3B800152ECE /* LoginPresenter.swift */; };
+		DAEA386D27DFF3CA00152ECE /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEA386C27DFF3CA00152ECE /* LoginFactory.swift */; };
+		DAEA386F27DFF3D400152ECE /* LoginCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEA386E27DFF3D400152ECE /* LoginCoodinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +67,11 @@
 		DAD7B89227C04E9B0076D4CC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DAD7B89527C050850076D4CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DAD95EB227D17EB90067A653 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		DAEA386727DFEC7600152ECE /* profocus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = profocus.entitlements; sourceTree = "<group>"; };
+		DAEA386827DFF3AE00152ECE /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		DAEA386A27DFF3B800152ECE /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		DAEA386C27DFF3CA00152ECE /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
+		DAEA386E27DFF3D400152ECE /* LoginCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoodinator.swift; sourceTree = "<group>"; };
 		E44D13C451E02AB2623B3FA2 /* Pods-profocus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-profocus.debug.xcconfig"; path = "Target Support Files/Pods-profocus/Pods-profocus.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +126,7 @@
 		DA17BFF327BB06BA0047CEBA /* profocus */ = {
 			isa = PBXGroup;
 			children = (
+				DAEA386727DFEC7600152ECE /* profocus.entitlements */,
 				DA17C00227BB06BC0047CEBA /* Info.plist */,
 				DA17BFFD27BB06BC0047CEBA /* Assets.xcassets */,
 				DA17BFFF27BB06BC0047CEBA /* LaunchScreen.storyboard */,
@@ -189,6 +199,10 @@
 			isa = PBXGroup;
 			children = (
 				DAD7B89227C04E9B0076D4CC /* LoginViewController.swift */,
+				DAEA386827DFF3AE00152ECE /* LoginInteractor.swift */,
+				DAEA386A27DFF3B800152ECE /* LoginPresenter.swift */,
+				DAEA386C27DFF3CA00152ECE /* LoginFactory.swift */,
+				DAEA386E27DFF3D400152ECE /* LoginCoodinator.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -326,6 +340,7 @@
 			files = (
 				DA93A02B27C44BE400F6B322 /* TimerInteractor.swift in Sources */,
 				DAD95EB327D17EB90067A653 /* TaskCell.swift in Sources */,
+				DAEA386B27DFF3B800152ECE /* LoginPresenter.swift in Sources */,
 				DAD7B89327C04E9B0076D4CC /* LoginViewController.swift in Sources */,
 				DA17BFF927BB06BA0047CEBA /* TimerViewController.swift in Sources */,
 				DA93A03127C44C1400F6B322 /* TimerCoordinator.swift in Sources */,
@@ -336,6 +351,9 @@
 				DA8391E327C850B100071450 /* TasksCoordinator.swift in Sources */,
 				DA8391E127C850A000071450 /* TasksPresenter.swift in Sources */,
 				DA93A02927C4490500F6B322 /* Task.xcdatamodeld in Sources */,
+				DAEA386927DFF3AE00152ECE /* LoginInteractor.swift in Sources */,
+				DAEA386D27DFF3CA00152ECE /* LoginFactory.swift in Sources */,
+				DAEA386F27DFF3D400152ECE /* LoginCoodinator.swift in Sources */,
 				DA40A3FA27D80E5700892E10 /* AnalyticsViewController.swift in Sources */,
 				DA93A02F27C44C0200F6B322 /* TimerFactory.swift in Sources */,
 				DA8391E527C850CE00071450 /* TasksFactory.swift in Sources */,
@@ -484,6 +502,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = profocus/profocus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9MXZLSN4X6;
@@ -514,6 +533,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = profocus/profocus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9MXZLSN4X6;

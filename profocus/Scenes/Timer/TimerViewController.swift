@@ -158,6 +158,7 @@ final class TimerViewController: UIViewController {
     @objc
     private func didTapSettings() {
         print("Tap to settings Button")
+        UserDefaults.standard.removeObject(forKey: "userID") // Implement logout
     }
     
     @objc
