@@ -28,8 +28,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    lazy var persistentContainer: NSPersistentContainer = {
+    lazy var taskContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Task")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
+    
+    lazy var userContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "UserInfo")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -41,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data Saving support
     
     func saveContext () {
-        let context = persistentContainer.viewContext
+        let context = taskContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()

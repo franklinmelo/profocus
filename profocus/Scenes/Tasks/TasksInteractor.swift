@@ -21,7 +21,7 @@ final class TasksInteractor: TasksInteracting {
     func getTasks() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
-        let managedContext = appDelegate.persistentContainer.viewContext
+        let managedContext = appDelegate.taskContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
         
@@ -36,7 +36,7 @@ final class TasksInteractor: TasksInteracting {
     func deletTask(object: NSManagedObject) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
-        let managedContext = appDelegate.persistentContainer.viewContext
+        let managedContext = appDelegate.taskContainer.viewContext
         
         managedContext.delete(object)
         
