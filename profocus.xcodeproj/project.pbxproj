@@ -15,6 +15,10 @@
 		DA17BFFE27BB06BC0047CEBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA17BFFD27BB06BC0047CEBA /* Assets.xcassets */; };
 		DA17C00127BB06BC0047CEBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA17BFFF27BB06BC0047CEBA /* LaunchScreen.storyboard */; };
 		DA3857D627E2AE2F00F531D1 /* UserInfo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA3857D427E2AE2F00F531D1 /* UserInfo.xcdatamodeld */; };
+		DA3857D927E2B7CA00F531D1 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3857D827E2B7CA00F531D1 /* ConfigViewController.swift */; };
+		DA3857DB27E2B7D700F531D1 /* ConfigInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3857DA27E2B7D700F531D1 /* ConfigInteractor.swift */; };
+		DA3857DD27E2B7E200F531D1 /* ConfigPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3857DC27E2B7E200F531D1 /* ConfigPresenter.swift */; };
+		DA3857DF27E2B7FC00F531D1 /* ConfigFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3857DE27E2B7FC00F531D1 /* ConfigFactory.swift */; };
 		DA40A3FA27D80E5700892E10 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A3F927D80E5700892E10 /* AnalyticsViewController.swift */; };
 		DA40A3FC27D80E6D00892E10 /* AnalyticsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A3FB27D80E6D00892E10 /* AnalyticsInteractor.swift */; };
 		DA40A3FE27D80E7600892E10 /* AnalyticsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A3FD27D80E7600892E10 /* AnalyticsPresenter.swift */; };
@@ -51,6 +55,10 @@
 		DA17C00027BB06BC0047CEBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA17C00227BB06BC0047CEBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA3857D527E2AE2F00F531D1 /* UserInfo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserInfo.xcdatamodel; sourceTree = "<group>"; };
+		DA3857D827E2B7CA00F531D1 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
+		DA3857DA27E2B7D700F531D1 /* ConfigInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigInteractor.swift; sourceTree = "<group>"; };
+		DA3857DC27E2B7E200F531D1 /* ConfigPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigPresenter.swift; sourceTree = "<group>"; };
+		DA3857DE27E2B7FC00F531D1 /* ConfigFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigFactory.swift; sourceTree = "<group>"; };
 		DA40A3F927D80E5700892E10 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		DA40A3FB27D80E6D00892E10 /* AnalyticsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsInteractor.swift; sourceTree = "<group>"; };
 		DA40A3FD27D80E7600892E10 /* AnalyticsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPresenter.swift; sourceTree = "<group>"; };
@@ -140,6 +148,17 @@
 			path = profocus;
 			sourceTree = "<group>";
 		};
+		DA3857D727E2B7B200F531D1 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				DA3857D827E2B7CA00F531D1 /* ConfigViewController.swift */,
+				DA3857DA27E2B7D700F531D1 /* ConfigInteractor.swift */,
+				DA3857DC27E2B7E200F531D1 /* ConfigPresenter.swift */,
+				DA3857DE27E2B7FC00F531D1 /* ConfigFactory.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		DA40A3F827D80E3700892E10 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +196,7 @@
 		DAD7B88F27C04C970076D4CC /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DA3857D727E2B7B200F531D1 /* Config */,
 				DA40A3F827D80E3700892E10 /* Analytics */,
 				DAD7B89127C04E870076D4CC /* Login */,
 				DA13CD0A27C6FCD80084FAB8 /* Models */,
@@ -344,6 +364,7 @@
 				DA3857D627E2AE2F00F531D1 /* UserInfo.xcdatamodeld in Sources */,
 				DA93A02B27C44BE400F6B322 /* TimerInteractor.swift in Sources */,
 				DAD95EB327D17EB90067A653 /* TaskCell.swift in Sources */,
+				DA3857DD27E2B7E200F531D1 /* ConfigPresenter.swift in Sources */,
 				DAEA386B27DFF3B800152ECE /* LoginPresenter.swift in Sources */,
 				DAD7B89327C04E9B0076D4CC /* LoginViewController.swift in Sources */,
 				DA17BFF927BB06BA0047CEBA /* TimerViewController.swift in Sources */,
@@ -358,6 +379,7 @@
 				DAEA386927DFF3AE00152ECE /* LoginInteractor.swift in Sources */,
 				DAEA386D27DFF3CA00152ECE /* LoginFactory.swift in Sources */,
 				DAEA386F27DFF3D400152ECE /* LoginCoodinator.swift in Sources */,
+				DA3857DF27E2B7FC00F531D1 /* ConfigFactory.swift in Sources */,
 				DA40A3FA27D80E5700892E10 /* AnalyticsViewController.swift in Sources */,
 				DA93A02F27C44C0200F6B322 /* TimerFactory.swift in Sources */,
 				DA8391E527C850CE00071450 /* TasksFactory.swift in Sources */,
@@ -367,6 +389,8 @@
 				DA40A3FC27D80E6D00892E10 /* AnalyticsInteractor.swift in Sources */,
 				DA8391DF27C8509500071450 /* TasksInteractor.swift in Sources */,
 				DA40A3FE27D80E7600892E10 /* AnalyticsPresenter.swift in Sources */,
+				DA3857DB27E2B7D700F531D1 /* ConfigInteractor.swift in Sources */,
+				DA3857D927E2B7CA00F531D1 /* ConfigViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
