@@ -87,6 +87,11 @@ final class TimerViewController: UIViewController {
         interactor?.getUserInfos()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
     private func setupViews() {
         view.addSubview(avatarImage)
         view.addSubview(userName)
@@ -157,8 +162,7 @@ final class TimerViewController: UIViewController {
     
     @objc
     private func didTapSettings() {
-        print("Tap to settings Button")
-        UserDefaults.standard.removeObject(forKey: "userID") // Implement logout
+        interactor?.openSettings()
     }
     
     @objc

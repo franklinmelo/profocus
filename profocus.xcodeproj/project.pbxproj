@@ -23,6 +23,7 @@
 		DA40A3FC27D80E6D00892E10 /* AnalyticsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A3FB27D80E6D00892E10 /* AnalyticsInteractor.swift */; };
 		DA40A3FE27D80E7600892E10 /* AnalyticsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A3FD27D80E7600892E10 /* AnalyticsPresenter.swift */; };
 		DA40A40027D80E8D00892E10 /* AnalyticsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A3FF27D80E8D00892E10 /* AnalyticsFactory.swift */; };
+		DA714DE527E3F7DC008C5AD0 /* ConfigCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA714DE427E3F7DC008C5AD0 /* ConfigCell.swift */; };
 		DA8391DA27C8459F00071450 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8391D927C8459F00071450 /* TabBar.swift */; };
 		DA8391DD27C8508300071450 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8391DC27C8508300071450 /* TasksViewController.swift */; };
 		DA8391DF27C8509500071450 /* TasksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8391DE27C8509500071450 /* TasksInteractor.swift */; };
@@ -63,6 +64,7 @@
 		DA40A3FB27D80E6D00892E10 /* AnalyticsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsInteractor.swift; sourceTree = "<group>"; };
 		DA40A3FD27D80E7600892E10 /* AnalyticsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPresenter.swift; sourceTree = "<group>"; };
 		DA40A3FF27D80E8D00892E10 /* AnalyticsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsFactory.swift; sourceTree = "<group>"; };
+		DA714DE427E3F7DC008C5AD0 /* ConfigCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigCell.swift; sourceTree = "<group>"; };
 		DA8391D927C8459F00071450 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		DA8391DC27C8508300071450 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		DA8391DE27C8509500071450 /* TasksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksInteractor.swift; sourceTree = "<group>"; };
@@ -151,10 +153,11 @@
 		DA3857D727E2B7B200F531D1 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				DA3857D827E2B7CA00F531D1 /* ConfigViewController.swift */,
+				DA3857DE27E2B7FC00F531D1 /* ConfigFactory.swift */,
 				DA3857DA27E2B7D700F531D1 /* ConfigInteractor.swift */,
 				DA3857DC27E2B7E200F531D1 /* ConfigPresenter.swift */,
-				DA3857DE27E2B7FC00F531D1 /* ConfigFactory.swift */,
+				DA3857D827E2B7CA00F531D1 /* ConfigViewController.swift */,
+				DA714DE327E3F7C3008C5AD0 /* Cells */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -168,6 +171,14 @@
 				DA40A3FF27D80E8D00892E10 /* AnalyticsFactory.swift */,
 			);
 			path = Analytics;
+			sourceTree = "<group>";
+		};
+		DA714DE327E3F7C3008C5AD0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DA714DE427E3F7DC008C5AD0 /* ConfigCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		DA8391DB27C8506300071450 /* Tasks */ = {
@@ -365,6 +376,7 @@
 				DA93A02B27C44BE400F6B322 /* TimerInteractor.swift in Sources */,
 				DAD95EB327D17EB90067A653 /* TaskCell.swift in Sources */,
 				DA3857DD27E2B7E200F531D1 /* ConfigPresenter.swift in Sources */,
+				DA714DE527E3F7DC008C5AD0 /* ConfigCell.swift in Sources */,
 				DAEA386B27DFF3B800152ECE /* LoginPresenter.swift in Sources */,
 				DAD7B89327C04E9B0076D4CC /* LoginViewController.swift in Sources */,
 				DA17BFF927BB06BA0047CEBA /* TimerViewController.swift in Sources */,

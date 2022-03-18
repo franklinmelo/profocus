@@ -6,6 +6,7 @@ protocol TimerInterecting: AnyObject {
     func getUserInfos()
     func startTimer()
     func stopTimer(with taskName: String)
+    func openSettings()
 }
 
 final class TimerInteractor {
@@ -85,5 +86,9 @@ extension TimerInteractor: TimerInterecting {
         timerCountSec = 0
         timerCountMin = 0
         presenter?.presentTimer(with: "00:00")
+    }
+    
+    func openSettings() {
+        presenter?.presentSettings()
     }
 }

@@ -24,8 +24,17 @@ final class LoginInteractor: NSObject, LoginInteracting {
     
     private func saveUserData(userName: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
         let managedContext = appDelegate.userContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
+        
+        do {
+            let userData = try managedContext.fetch(fetchRequest)
+            userData.forEach {
+                managedContext.delete($0)
+            }
+        } catch {
+            print("Could not fetch. \(error)")
+        }
         
         guard let entity = NSEntityDescription.entity(forEntityName: "User", in: managedContext) else { return }
         

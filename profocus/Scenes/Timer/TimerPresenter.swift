@@ -5,7 +5,7 @@ protocol TimerPresenting: AnyObject {
     func presentStartTimer()
     func presentStopTimer()
     func presentTimer(with time: String)
-    func presentStartAlert(title: String?, message: String?)
+    func presentSettings()
 }
 
 final class TimerPresenter: TimerPresenting {
@@ -32,7 +32,7 @@ final class TimerPresenter: TimerPresenting {
         viewController?.displayUpdateTimer(with: time)
     }
     
-    func presentStartAlert(title: String?, message: String?) {
-        
+    func presentSettings() {
+        coordinator?.openSettingsScreen()
     }
 }

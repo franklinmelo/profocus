@@ -2,11 +2,16 @@ import Foundation
 import UIKit
 
 protocol TimerCoordinating: AnyObject {
-    func doSomeThing()
+    func openSettingsScreen()
 }
 
 final class TimerCoordinator: TimerCoordinating {
     weak var viewController: UIViewController?
     
-    func doSomeThing() {}
+    func openSettingsScreen() {
+        let settingsViewController = ConfigFactory().make()
+        let navigation = viewController?.navigationController
+        
+        navigation?.pushViewController(settingsViewController, animated: true)
+    }
 }

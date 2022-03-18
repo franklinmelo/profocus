@@ -14,7 +14,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let userID = UserDefaults.standard.value(forKey: "userID") as? String
         appleIDProvider.getCredentialState(forUserID: userID ?? "") { (credentialState, error) in
