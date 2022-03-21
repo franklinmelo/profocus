@@ -35,6 +35,8 @@
 		DA93A02D27C44BEC00F6B322 /* TimerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A02C27C44BEC00F6B322 /* TimerPresenter.swift */; };
 		DA93A02F27C44C0200F6B322 /* TimerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A02E27C44C0200F6B322 /* TimerFactory.swift */; };
 		DA93A03127C44C1400F6B322 /* TimerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A03027C44C1400F6B322 /* TimerCoordinator.swift */; };
+		DAB6300C27E9323D005ACE9B /* ConfigCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6300B27E9323D005ACE9B /* ConfigCellModel.swift */; };
+		DAB6300E27E934B7005ACE9B /* ConfigCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6300D27E934B7005ACE9B /* ConfigCoordinator.swift */; };
 		DAD7B89327C04E9B0076D4CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7B89227C04E9B0076D4CC /* LoginViewController.swift */; };
 		DAD7B89627C050850076D4CC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD7B89527C050850076D4CC /* MapKit.framework */; };
 		DAD95EB327D17EB90067A653 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD95EB227D17EB90067A653 /* TaskCell.swift */; };
@@ -76,6 +78,8 @@
 		DA93A02C27C44BEC00F6B322 /* TimerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPresenter.swift; sourceTree = "<group>"; };
 		DA93A02E27C44C0200F6B322 /* TimerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerFactory.swift; sourceTree = "<group>"; };
 		DA93A03027C44C1400F6B322 /* TimerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCoordinator.swift; sourceTree = "<group>"; };
+		DAB6300B27E9323D005ACE9B /* ConfigCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigCellModel.swift; sourceTree = "<group>"; };
+		DAB6300D27E934B7005ACE9B /* ConfigCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigCoordinator.swift; sourceTree = "<group>"; };
 		DAD7B89227C04E9B0076D4CC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DAD7B89527C050850076D4CC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DAD95EB227D17EB90067A653 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				DA13CD0B27C6FCFB0084FAB8 /* UserModel.swift */,
+				DAB6300B27E9323D005ACE9B /* ConfigCellModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 				DA3857DC27E2B7E200F531D1 /* ConfigPresenter.swift */,
 				DA3857D827E2B7CA00F531D1 /* ConfigViewController.swift */,
 				DA714DE327E3F7C3008C5AD0 /* Cells */,
+				DAB6300D27E934B7005ACE9B /* ConfigCoordinator.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -379,6 +385,7 @@
 				DA714DE527E3F7DC008C5AD0 /* ConfigCell.swift in Sources */,
 				DAEA386B27DFF3B800152ECE /* LoginPresenter.swift in Sources */,
 				DAD7B89327C04E9B0076D4CC /* LoginViewController.swift in Sources */,
+				DAB6300E27E934B7005ACE9B /* ConfigCoordinator.swift in Sources */,
 				DA17BFF927BB06BA0047CEBA /* TimerViewController.swift in Sources */,
 				DA93A03127C44C1400F6B322 /* TimerCoordinator.swift in Sources */,
 				DA40A40027D80E8D00892E10 /* AnalyticsFactory.swift in Sources */,
@@ -395,6 +402,7 @@
 				DA40A3FA27D80E5700892E10 /* AnalyticsViewController.swift in Sources */,
 				DA93A02F27C44C0200F6B322 /* TimerFactory.swift in Sources */,
 				DA8391E527C850CE00071450 /* TasksFactory.swift in Sources */,
+				DAB6300C27E9323D005ACE9B /* ConfigCellModel.swift in Sources */,
 				DA8391DA27C8459F00071450 /* TabBar.swift in Sources */,
 				DA13CD0C27C6FCFB0084FAB8 /* UserModel.swift in Sources */,
 				DA17BFF727BB06BA0047CEBA /* SceneDelegate.swift in Sources */,

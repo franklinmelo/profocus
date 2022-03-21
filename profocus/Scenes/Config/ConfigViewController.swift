@@ -1,30 +1,13 @@
 import Foundation
 import UIKit
 
-enum ConfigType {
-    case editName
-    case editJob
-    case editPhoto
-    case logout
-    case linkRepo
+protocol ConfigDisplaying: AnyObject {
+    func displayConfigs(with configModels: [ConfigCellModel])
 }
-
-// TODO: Create model file
-struct ConfigCellModel {
-    let title: String
-    let type: ConfigType
-}
-
-protocol ConfigDisplaying: AnyObject {}
 
 final class ConfigViewController: UIViewController {
     private let interactor: ConfigInteracting?
-    // TODO: Get from interactor
-    private let configModels: [ConfigCellModel] = [.init(title: "Editar nome", type: .editName),
-                                                   .init(title: "Editar função", type: .editJob),
-                                                   .init(title: "Editar Photo", type: .editPhoto),
-                                                   .init(title: "Link do repositório", type: .linkRepo),
-                                                   .init(title: "Sair", type: .logout)]
+    private var configModels: [ConfigCellModel] = []
     
     private lazy var tableView: UITableView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -55,6 +38,7 @@ final class ConfigViewController: UIViewController {
         setupConstraints()
         configureViews()
         setupNavigation()
+        interactor?.getConfigs()
     }
     
     private func setupViews() {
@@ -82,7 +66,11 @@ final class ConfigViewController: UIViewController {
     }
 }
 
-extension ConfigViewController: ConfigDisplaying {}
+extension ConfigViewController: ConfigDisplaying {
+    func displayConfigs(with configModels: [ConfigCellModel]) {
+        self.configModels = configModels
+    }
+}
 
 extension ConfigViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,21 +91,8 @@ extension ConfigViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? ConfigCell else { return }
-        
-        switch cell.cellType {
-        case .editName:
-            print("editName")
-        case .editJob:
-            print("editJob")
-        case .editPhoto:
-            print("editPhoto")
-        case .linkRepo:
-            print("linkRepo")
-        case .logout:
-            print("logout")
-        case .none:
-            print("Error celltype not setted")
-        }
+        guard let type = cell.cellType else { return }
+        interactor?.handlerConfigTap(from: type)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
