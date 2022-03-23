@@ -3,6 +3,8 @@ import UIKit
 
 protocol ConfigDisplaying: AnyObject {
     func displayConfigs(with configModels: [ConfigCellModel])
+    func displayEditNameAlert(title: String, message: String)
+    func displayEditJobAlert(title: String, message: String)
 }
 
 final class ConfigViewController: UIViewController {
@@ -69,6 +71,42 @@ final class ConfigViewController: UIViewController {
 extension ConfigViewController: ConfigDisplaying {
     func displayConfigs(with configModels: [ConfigCellModel]) {
         self.configModels = configModels
+    }
+    
+    func displayEditNameAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addTextField()
+        
+        let alertAction = UIAlertAction(title: "OK", style: .default) { [weak self, weak alertController] _ in
+            guard let answer = alertController?.textFields?.first?.text else { return }
+            if !answer.isEmpty {
+                self?.interactor?.setUserName(with: answer)
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        
+        alertController.addAction(alertAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
+    }
+    
+    func displayEditJobAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addTextField()
+        
+        let alertAction = UIAlertAction(title: "OK", style: .default) { [weak self, weak alertController] _ in
+            guard let answer = alertController?.textFields?.first?.text else { return }
+            if !answer.isEmpty {
+                self?.interactor?.setUserJob(with: answer)
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        
+        alertController.addAction(alertAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
     }
 }
 

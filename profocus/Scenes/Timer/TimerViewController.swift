@@ -84,12 +84,12 @@ final class TimerViewController: UIViewController {
         setupViews()
         setupConstraints()
         configureViews()
-        interactor?.getUserInfos()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = false
+        interactor?.getUserInfos()
     }
     
     private func setupViews() {
@@ -172,12 +172,12 @@ final class TimerViewController: UIViewController {
                                 cancelActionTitle: "Cancelar",
                                 withTextField: true)
         
-        let alertAction = UIAlertAction(title: "Iniciar", style: .default) { [unowned alert] _ in
-            guard let answer = alert.textFields?[0].text else { return }
+        let alertAction = UIAlertAction(title: "Iniciar", style: .default) { [weak self, weak alert] _ in
+            guard let answer = alert?.textFields?[0].text else { return }
             if !answer.isEmpty {
                 DispatchQueue.main.async {
-                    self.timerTitle.text = answer
-                    self.interactor?.startTimer()
+                    self?.timerTitle.text = answer
+                    self?.interactor?.startTimer()
                 }
             }
         }

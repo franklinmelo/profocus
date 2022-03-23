@@ -11,7 +11,7 @@ protocol TasksInteracting: AnyObject {
 
 final class TasksInteractor: TasksInteracting {
     private var presenter: TasksPresenting?
-    private var tasks: [NSManagedObject] = []
+    private var tasks: [Task] = []
     private var filteredTasks: [NSManagedObject] = []
     
     init(presenter: TasksPresenting) {
@@ -23,7 +23,7 @@ final class TasksInteractor: TasksInteracting {
         
         let managedContext = appDelegate.taskContainer.viewContext
         
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
+        let fetchRequest = NSFetchRequest<Task>(entityName: "Task")
         
         do {
             tasks = try managedContext.fetch(fetchRequest)

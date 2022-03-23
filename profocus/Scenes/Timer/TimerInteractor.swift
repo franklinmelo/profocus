@@ -35,14 +35,12 @@ final class TimerInteractor {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.taskContainer.viewContext
         
-        guard let entity = NSEntityDescription.entity(forEntityName: "Task", in: managedContext) else { return }
+        let task = Task(context: managedContext)
         
-        let task = NSManagedObject(entity: entity, insertInto: managedContext)
-        
-        task.setValue(taskMin, forKey: "timeMin")
-        task.setValue(taskSec, forKey: "timeSec")
-        task.setValue(taskName, forKey: "name")
-        task.setValue(Date().timeIntervalSince1970, forKey: "createdAt")
+        task.timeMin = Int16(taskMin)
+        task.timeSec = Int16(taskSec)
+        task.name = taskName
+        task.createdAt = Date().timeIntervalSince1970
         
         do {
             try managedContext.save()
@@ -57,12 +55,12 @@ extension TimerInteractor: TimerInterecting {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.userContainer.viewContext
         
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
+        let fetchRequest = NSFetchRequest<User>(entityName: "User")
         
         do {
             let userData = try managedContext.fetch(fetchRequest)
-            presenter?.presentUserInfos(with: .init(userName: userData.last?.value(forKey: "name") as? String ?? "Usuário ProFocus",
-                                                    userJob: userData.last?.value(forKey: "job") as? String ?? ""))
+            presenter?.presentUserInfos(with: .init(userName: userData.last?.name ?? "Usuário ProFocus",
+                                                    userJob: userData.last?.job ?? ""))
         } catch {
             print("Could not fetch. \(error)")
         }

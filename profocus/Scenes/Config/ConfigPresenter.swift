@@ -3,6 +3,8 @@ import Foundation
 protocol ConfigPresenting: AnyObject {
     func presentConfigs(with configModels: [ConfigCellModel])
     func presentLoginScreen()
+    func presentEditNameAlert()
+    func presentEditJobAlert()
 }
 
 final class ConfigPresenter {
@@ -21,5 +23,13 @@ extension ConfigPresenter: ConfigPresenting {
     
     func presentLoginScreen() {
         coordinator?.openLoginScreen()
+    }
+    
+    func presentEditNameAlert() {
+        viewController?.displayEditNameAlert(title: "Editar nome", message: "Insira o novo nome que deseja")
+    }
+    
+    func presentEditJobAlert() {
+        viewController?.displayEditJobAlert(title: "Editar função", message: "Insira seu cargo ou função")
     }
 }
