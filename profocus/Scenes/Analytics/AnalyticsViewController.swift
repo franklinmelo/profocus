@@ -2,7 +2,9 @@ import Charts
 import Foundation
 import UIKit
 
-protocol AnalyticsDisplay: AnyObject {}
+protocol AnalyticsDisplay: AnyObject {
+    func displayChartData(values: [BarChartDataEntry])
+}
 
 final class AnalyticsViewController: UIViewController {
     private var interactor: AnalyticsInteracting?
@@ -29,16 +31,6 @@ final class AnalyticsViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    let values: [BarChartDataEntry] = [
-        BarChartDataEntry(x: 0.0, y: 1.0),
-        BarChartDataEntry(x: 1.0, y: 2.0),
-        BarChartDataEntry(x: 2.0, y: 4.0),
-        BarChartDataEntry(x: 3.0, y: 5.0),
-        BarChartDataEntry(x: 4.0, y: 6.0),
-        BarChartDataEntry(x: 5.0, y: 7.0),
-        BarChartDataEntry(x: 6.0, y: 12.0)
-    ]
-    
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -50,6 +42,11 @@ final class AnalyticsViewController: UIViewController {
         setupConstraints()
         configureViews()
         setupNavigation()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        interactor?.getTasks()
     }
     
     private func setupViews() {
@@ -67,7 +64,6 @@ final class AnalyticsViewController: UIViewController {
     
     private func configureViews() {
         chartView.layer.cornerRadius = 5
-        setChartData()
     }
     
     private func setupNavigation() {
@@ -75,8 +71,8 @@ final class AnalyticsViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    func setChartData() {
-        let set = BarChartDataSet(entries: values, label: "Tempo de foco em minutos")
+    func setChartData(with entries: [BarChartDataEntry]) {
+        let set = BarChartDataSet(entries: entries, label: "Tempo de foco em minutos")
         set.colors = [NSUIColor(ciColor: .cyan)]
         let data = BarChartData(dataSet: set)
         data.setValueFont(.systemFont(ofSize: 12))
@@ -84,7 +80,11 @@ final class AnalyticsViewController: UIViewController {
     }
 }
 
-extension AnalyticsViewController: AnalyticsDisplay {}
+extension AnalyticsViewController: AnalyticsDisplay {
+    func displayChartData(values: [BarChartDataEntry]) {
+        setChartData(with: values)
+    }
+}
 
 extension AnalyticsViewController: ChartViewDelegate {}
 
@@ -96,7 +96,7 @@ class WeekValueFormatter: NSObject, IAxisValueFormatter {
     }
 
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        let week = ["SEG", "TER", "QUA", "QUI", "SEX", "SAB", "DOM"]
+        let week = ["DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SAB"]
         return week[Int(value)]
     }
 }
