@@ -31,6 +31,10 @@ final class TasksViewController: UIViewController {
         return $0
     }(UITableView())
     
+    private lazy var addTaskButton: UIBarButtonItem = {
+        return $0
+    }(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddTask)))
+    
     private var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
     }
@@ -85,6 +89,7 @@ final class TasksViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
+        navigationItem.rightBarButtonItem = addTaskButton
     }
     
     private func showDeleteAlert(indexPath: Int) {
@@ -99,6 +104,14 @@ final class TasksViewController: UIViewController {
         alert.addAction(cancelAction)
         present(alert, animated: true)
     }
+    
+    @objc
+    private func didTapAddTask() {
+        interactor?.addTask()
+        guard let viewController = AddTaskFactory.make() as? AddTaskViewController else { return }
+        viewController.delegate = self
+        present(viewController, animated: true)
+    }
 }
 
 extension TasksViewController: TasksDisplaying {
@@ -110,6 +123,12 @@ extension TasksViewController: TasksDisplaying {
     func displayFilteredTasks(tasks: [NSManagedObject]) {
         filteredTasks = tasks
         tableView.reloadData()
+    }
+}
+
+extension TasksViewController: PresentationDelegate {
+    func didDismiss() {
+        print("update task")
     }
 }
 

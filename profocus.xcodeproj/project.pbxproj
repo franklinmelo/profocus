@@ -23,6 +23,11 @@
 		DA40A3FC27D80E6D00892E10 /* AnalyticsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A3FB27D80E6D00892E10 /* AnalyticsInteractor.swift */; };
 		DA40A3FE27D80E7600892E10 /* AnalyticsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A3FD27D80E7600892E10 /* AnalyticsPresenter.swift */; };
 		DA40A40027D80E8D00892E10 /* AnalyticsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40A3FF27D80E8D00892E10 /* AnalyticsFactory.swift */; };
+		DA4747C927FFAF49009DAF76 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4747C827FFAF49009DAF76 /* AddTaskViewController.swift */; };
+		DA4747CB27FFAF59009DAF76 /* AddTaskInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4747CA27FFAF59009DAF76 /* AddTaskInteractor.swift */; };
+		DA4747CD27FFAF64009DAF76 /* AddTaskPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4747CC27FFAF64009DAF76 /* AddTaskPresenter.swift */; };
+		DA4747CF27FFAF79009DAF76 /* AddTaskCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4747CE27FFAF79009DAF76 /* AddTaskCoordinator.swift */; };
+		DA4747D127FFAF88009DAF76 /* AddTaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4747D027FFAF88009DAF76 /* AddTaskFactory.swift */; };
 		DA714DE527E3F7DC008C5AD0 /* ConfigCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA714DE427E3F7DC008C5AD0 /* ConfigCell.swift */; };
 		DA8391DA27C8459F00071450 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8391D927C8459F00071450 /* TabBar.swift */; };
 		DA8391DD27C8508300071450 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8391DC27C8508300071450 /* TasksViewController.swift */; };
@@ -66,6 +71,11 @@
 		DA40A3FB27D80E6D00892E10 /* AnalyticsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsInteractor.swift; sourceTree = "<group>"; };
 		DA40A3FD27D80E7600892E10 /* AnalyticsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPresenter.swift; sourceTree = "<group>"; };
 		DA40A3FF27D80E8D00892E10 /* AnalyticsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsFactory.swift; sourceTree = "<group>"; };
+		DA4747C827FFAF49009DAF76 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		DA4747CA27FFAF59009DAF76 /* AddTaskInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskInteractor.swift; sourceTree = "<group>"; };
+		DA4747CC27FFAF64009DAF76 /* AddTaskPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPresenter.swift; sourceTree = "<group>"; };
+		DA4747CE27FFAF79009DAF76 /* AddTaskCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskCoordinator.swift; sourceTree = "<group>"; };
+		DA4747D027FFAF88009DAF76 /* AddTaskFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskFactory.swift; sourceTree = "<group>"; };
 		DA714DE427E3F7DC008C5AD0 /* ConfigCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigCell.swift; sourceTree = "<group>"; };
 		DA8391D927C8459F00071450 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		DA8391DC27C8508300071450 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +189,18 @@
 			path = Analytics;
 			sourceTree = "<group>";
 		};
+		DA4747C727FFAEEA009DAF76 /* AddTasks */ = {
+			isa = PBXGroup;
+			children = (
+				DA4747C827FFAF49009DAF76 /* AddTaskViewController.swift */,
+				DA4747CA27FFAF59009DAF76 /* AddTaskInteractor.swift */,
+				DA4747CC27FFAF64009DAF76 /* AddTaskPresenter.swift */,
+				DA4747CE27FFAF79009DAF76 /* AddTaskCoordinator.swift */,
+				DA4747D027FFAF88009DAF76 /* AddTaskFactory.swift */,
+			);
+			path = AddTasks;
+			sourceTree = "<group>";
+		};
 		DA714DE327E3F7C3008C5AD0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +235,7 @@
 		DAD7B88F27C04C970076D4CC /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DA4747C727FFAEEA009DAF76 /* AddTasks */,
 				DA3857D727E2B7B200F531D1 /* Config */,
 				DA40A3F827D80E3700892E10 /* Analytics */,
 				DAD7B89127C04E870076D4CC /* Login */,
@@ -379,9 +402,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA3857D627E2AE2F00F531D1 /* UserInfo.xcdatamodeld in Sources */,
+				DA4747CD27FFAF64009DAF76 /* AddTaskPresenter.swift in Sources */,
 				DA93A02B27C44BE400F6B322 /* TimerInteractor.swift in Sources */,
 				DAD95EB327D17EB90067A653 /* TaskCell.swift in Sources */,
 				DA3857DD27E2B7E200F531D1 /* ConfigPresenter.swift in Sources */,
+				DA4747CB27FFAF59009DAF76 /* AddTaskInteractor.swift in Sources */,
 				DA714DE527E3F7DC008C5AD0 /* ConfigCell.swift in Sources */,
 				DAEA386B27DFF3B800152ECE /* LoginPresenter.swift in Sources */,
 				DAD7B89327C04E9B0076D4CC /* LoginViewController.swift in Sources */,
@@ -393,6 +418,7 @@
 				DA8391DD27C8508300071450 /* TasksViewController.swift in Sources */,
 				DA17BFF527BB06BA0047CEBA /* AppDelegate.swift in Sources */,
 				DA8391E327C850B100071450 /* TasksCoordinator.swift in Sources */,
+				DA4747CF27FFAF79009DAF76 /* AddTaskCoordinator.swift in Sources */,
 				DA8391E127C850A000071450 /* TasksPresenter.swift in Sources */,
 				DA93A02927C4490500F6B322 /* Task.xcdatamodeld in Sources */,
 				DAEA386927DFF3AE00152ECE /* LoginInteractor.swift in Sources */,
@@ -406,7 +432,9 @@
 				DA8391DA27C8459F00071450 /* TabBar.swift in Sources */,
 				DA13CD0C27C6FCFB0084FAB8 /* UserModel.swift in Sources */,
 				DA17BFF727BB06BA0047CEBA /* SceneDelegate.swift in Sources */,
+				DA4747D127FFAF88009DAF76 /* AddTaskFactory.swift in Sources */,
 				DA40A3FC27D80E6D00892E10 /* AnalyticsInteractor.swift in Sources */,
+				DA4747C927FFAF49009DAF76 /* AddTaskViewController.swift in Sources */,
 				DA8391DF27C8509500071450 /* TasksInteractor.swift in Sources */,
 				DA40A3FE27D80E7600892E10 /* AnalyticsPresenter.swift in Sources */,
 				DA3857DB27E2B7D700F531D1 /* ConfigInteractor.swift in Sources */,

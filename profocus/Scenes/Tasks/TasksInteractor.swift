@@ -7,6 +7,7 @@ protocol TasksInteracting: AnyObject {
     func deletTask(object: NSManagedObject)
     func handlerTaskData(task: NSManagedObject)
     func filterTasks(for name: String)
+    func addTask()
 }
 
 final class TasksInteractor: TasksInteracting {
@@ -60,4 +61,6 @@ final class TasksInteractor: TasksInteracting {
         
         presenter?.presentFilteredTasks(tasks: filteredTasks)
     }
+    
+    func addTask() {}
 }
