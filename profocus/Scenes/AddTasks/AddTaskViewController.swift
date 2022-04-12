@@ -102,6 +102,7 @@ final class AddTaskViewController: UIViewController {
         configureViews()
         NotificationCenter.default.addObserver(self, selector: #selector(changeKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        interactor?.getCategories()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -213,6 +214,7 @@ final class AddTaskViewController: UIViewController {
         guard let textFieldValue = textField.text else { return }
         if !textFieldValue.isEmpty {
             interactor?.createTask(title: textFieldValue , categorieIntex: picker.selectedRow(inComponent: 0))
+            self.dismiss(animated: true)
             return
         }
         
@@ -244,10 +246,13 @@ extension AddTaskViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        interactor?.catetories.count ?? 0
+        interactor?.categories.count ?? 0
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        interactor?.catetories[row] ?? ""
+        guard let title = interactor?.categories[row].value(forKey: "name") as? String else {
+            return "Não definido"
+        }
+        return title
     }
 }

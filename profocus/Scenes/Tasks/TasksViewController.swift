@@ -128,7 +128,7 @@ extension TasksViewController: TasksDisplaying {
 
 extension TasksViewController: PresentationDelegate {
     func didDismiss() {
-        print("update task")
+        interactor?.getTasks()
     }
 }
 
