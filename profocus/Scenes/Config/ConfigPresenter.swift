@@ -5,6 +5,7 @@ protocol ConfigPresenting: AnyObject {
     func presentLoginScreen()
     func presentEditNameAlert()
     func presentEditJobAlert()
+    func presentUserData(with model: UserModel)
 }
 
 final class ConfigPresenter {
@@ -31,5 +32,9 @@ extension ConfigPresenter: ConfigPresenting {
     
     func presentEditJobAlert() {
         viewController?.displayEditJobAlert(title: "Editar função", message: "Insira seu cargo ou função")
+    }
+    
+    func presentUserData(with model: UserModel) {
+        viewController?.displayUserData(with: model)
     }
 }

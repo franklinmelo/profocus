@@ -7,14 +7,15 @@ protocol ConfigInteracting: AnyObject {
     func handlerConfigTap(from type: ConfigType)
     func setUserName(with name: String)
     func setUserJob(with job: String)
+    func getUserData()
 }
 
 final class ConfigInteractor {
     private let presenter: ConfigPresenting?
     private let configModels: [ConfigCellModel] = [.init(title: "Editar nome", type: .editName),
                                                    .init(title: "Editar função", type: .editJob),
-                                                   .init(title: "Editar Photo", type: .editPhoto),
-                                                   .init(title: "Link do repositório", type: .linkRepo),
+                                                   .init(title: "Editar foto", type: .editPhoto),
+                                                   .init(title: "Adicionar categorias", type: .editCategories),
                                                    .init(title: "Sair", type: .logout)]
     
     init(presenter: ConfigPresenting) {
@@ -49,10 +50,8 @@ extension ConfigInteractor: ConfigInteracting {
             presenter?.presentEditJobAlert()
         case .editPhoto:
             print("editPhoto")
-        case .linkRepo:
-            if let url = URL(string: "https://github.com/franklinmelo/profocus") {
-                UIApplication.shared.open(url)
-            }
+        case .editCategories:
+            break // Call factory of categories Screen
         case .logout:
             UserDefaults.standard.removeObject(forKey: "userID")
             presenter?.presentLoginScreen()
@@ -79,5 +78,11 @@ extension ConfigInteractor: ConfigInteracting {
         } catch {
             print("Could not fetch. \(error)")
         }
+    }
+    
+    func getUserData() {
+        let user = getUserInfo()?.user.first
+        presenter?.presentUserData(with: .init(userName: user?.name ?? "Usuário Profocus",
+                                               userJob: user?.job ?? "Função"))
     }
 }

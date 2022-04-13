@@ -12,9 +12,9 @@ class TabBar: UITabBarController {
     
     private func setupViewControllers() {
         viewControllers = [
-            createViewController(rootViewController: TimerFactory().make(), tabIcon: UIImage(systemName: "timer"), tabTitle: "Timer"),
             createViewController(rootViewController: TasksFactory().make(), tabIcon: UIImage(systemName: "list.bullet"), tabTitle: "Tarefas"),
-            createViewController(rootViewController: AnalyticsFactory().make(), tabIcon: UIImage(systemName: "chart.bar.xaxis"), tabTitle: "Resultados")
+            createViewController(rootViewController: AnalyticsFactory().make(), tabIcon: UIImage(systemName: "chart.bar.xaxis"), tabTitle: "Resultados"),
+            createViewController(rootViewController: ConfigFactory().make(), tabIcon: UIImage(systemName: "gear"), tabTitle: "Configurações")
         ]
     }
     

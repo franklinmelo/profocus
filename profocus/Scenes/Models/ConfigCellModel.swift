@@ -8,5 +8,5 @@ enum ConfigType {
     case editJob
     case editPhoto
     case logout
-    case linkRepo
+    case editCategories
 }
