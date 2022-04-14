@@ -3,6 +3,7 @@ import UIKit
 
 protocol ConfigCoordinating: AnyObject {
     func openLoginScreen()
+    func openCategoriesScreen()
 }
 
 final class ConfigCoordinator {
@@ -16,5 +17,12 @@ extension ConfigCoordinator: ConfigCoordinating {
         guard let scenes = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
         scenes.windows.first?.rootViewController = loginController
         navigation?.popToRootViewController(animated: true)
+    }
+    
+    func openCategoriesScreen() {
+        let categoriesView = CategoriesFactory().make()
+        let navigation = viewController?.navigationController
+        
+        navigation?.pushViewController(categoriesView, animated: true)
     }
 }

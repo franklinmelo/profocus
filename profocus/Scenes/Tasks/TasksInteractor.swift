@@ -56,7 +56,7 @@ final class TasksInteractor: TasksInteracting {
     func filterTasks(for name: String) {
         filteredTasks = tasks.filter { (task: NSManagedObject) -> Bool in
             let taskName = task.value(forKey: "name") as? String ?? ""
-            return taskName.contains(name.lowercased())
+            return taskName.lowercased().contains(name.lowercased())
         }
         
         presenter?.presentFilteredTasks(tasks: filteredTasks)

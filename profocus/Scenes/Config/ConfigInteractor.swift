@@ -51,7 +51,7 @@ extension ConfigInteractor: ConfigInteracting {
         case .editPhoto:
             print("editPhoto")
         case .editCategories:
-            break // Call factory of categories Screen
+            presenter?.presentCategoriesScreen()
         case .logout:
             UserDefaults.standard.removeObject(forKey: "userID")
             presenter?.presentLoginScreen()

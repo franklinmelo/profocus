@@ -6,6 +6,7 @@ protocol ConfigPresenting: AnyObject {
     func presentEditNameAlert()
     func presentEditJobAlert()
     func presentUserData(with model: UserModel)
+    func presentCategoriesScreen()
 }
 
 final class ConfigPresenter {
@@ -36,5 +37,9 @@ extension ConfigPresenter: ConfigPresenting {
     
     func presentUserData(with model: UserModel) {
         viewController?.displayUserData(with: model)
+    }
+    
+    func presentCategoriesScreen() {
+        coordinator?.openCategoriesScreen()
     }
 }

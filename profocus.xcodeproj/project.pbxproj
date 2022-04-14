@@ -40,6 +40,11 @@
 		DA93A02D27C44BEC00F6B322 /* TimerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A02C27C44BEC00F6B322 /* TimerPresenter.swift */; };
 		DA93A02F27C44C0200F6B322 /* TimerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A02E27C44C0200F6B322 /* TimerFactory.swift */; };
 		DA93A03127C44C1400F6B322 /* TimerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A03027C44C1400F6B322 /* TimerCoordinator.swift */; };
+		DAAE5BF82808A7AE0004E1CC /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE5BF72808A7AE0004E1CC /* CategoriesViewController.swift */; };
+		DAAE5BFA2808A7E40004E1CC /* CategoriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE5BF92808A7E40004E1CC /* CategoriesInteractor.swift */; };
+		DAAE5BFC2808A7ED0004E1CC /* CategoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE5BFB2808A7ED0004E1CC /* CategoriesPresenter.swift */; };
+		DAAE5BFE2808A7F80004E1CC /* CategoriesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE5BFD2808A7F80004E1CC /* CategoriesFactory.swift */; };
+		DAAE5C012808AC2D0004E1CC /* CategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE5C002808AC2D0004E1CC /* CategoriesCell.swift */; };
 		DAB6300C27E9323D005ACE9B /* ConfigCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6300B27E9323D005ACE9B /* ConfigCellModel.swift */; };
 		DAB6300E27E934B7005ACE9B /* ConfigCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6300D27E934B7005ACE9B /* ConfigCoordinator.swift */; };
 		DAD7B89327C04E9B0076D4CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7B89227C04E9B0076D4CC /* LoginViewController.swift */; };
@@ -88,6 +93,11 @@
 		DA93A02C27C44BEC00F6B322 /* TimerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPresenter.swift; sourceTree = "<group>"; };
 		DA93A02E27C44C0200F6B322 /* TimerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerFactory.swift; sourceTree = "<group>"; };
 		DA93A03027C44C1400F6B322 /* TimerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCoordinator.swift; sourceTree = "<group>"; };
+		DAAE5BF72808A7AE0004E1CC /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		DAAE5BF92808A7E40004E1CC /* CategoriesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesInteractor.swift; sourceTree = "<group>"; };
+		DAAE5BFB2808A7ED0004E1CC /* CategoriesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPresenter.swift; sourceTree = "<group>"; };
+		DAAE5BFD2808A7F80004E1CC /* CategoriesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesFactory.swift; sourceTree = "<group>"; };
+		DAAE5C002808AC2D0004E1CC /* CategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCell.swift; sourceTree = "<group>"; };
 		DAB6300B27E9323D005ACE9B /* ConfigCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigCellModel.swift; sourceTree = "<group>"; };
 		DAB6300D27E934B7005ACE9B /* ConfigCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigCoordinator.swift; sourceTree = "<group>"; };
 		DAD7B89227C04E9B0076D4CC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -168,12 +178,12 @@
 		DA3857D727E2B7B200F531D1 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				DAB6300D27E934B7005ACE9B /* ConfigCoordinator.swift */,
 				DA3857DE27E2B7FC00F531D1 /* ConfigFactory.swift */,
 				DA3857DA27E2B7D700F531D1 /* ConfigInteractor.swift */,
 				DA3857DC27E2B7E200F531D1 /* ConfigPresenter.swift */,
 				DA3857D827E2B7CA00F531D1 /* ConfigViewController.swift */,
 				DA714DE327E3F7C3008C5AD0 /* Cells */,
-				DAB6300D27E934B7005ACE9B /* ConfigCoordinator.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -222,6 +232,26 @@
 			path = Tasks;
 			sourceTree = "<group>";
 		};
+		DAAE5BF62808A77C0004E1CC /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				DAAE5BFF2808AC1D0004E1CC /* Cells */,
+				DAAE5BF72808A7AE0004E1CC /* CategoriesViewController.swift */,
+				DAAE5BF92808A7E40004E1CC /* CategoriesInteractor.swift */,
+				DAAE5BFB2808A7ED0004E1CC /* CategoriesPresenter.swift */,
+				DAAE5BFD2808A7F80004E1CC /* CategoriesFactory.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		DAAE5BFF2808AC1D0004E1CC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DAAE5C002808AC2D0004E1CC /* CategoriesCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		DAD7B88E27C04C670076D4CC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,8 +266,9 @@
 			isa = PBXGroup;
 			children = (
 				DA4747C727FFAEEA009DAF76 /* AddTasks */,
-				DA3857D727E2B7B200F531D1 /* Config */,
 				DA40A3F827D80E3700892E10 /* Analytics */,
+				DAAE5BF62808A77C0004E1CC /* Categories */,
+				DA3857D727E2B7B200F531D1 /* Config */,
 				DAD7B89127C04E870076D4CC /* Login */,
 				DA13CD0A27C6FCD80084FAB8 /* Models */,
 				DA8391DB27C8506300071450 /* Tasks */,
@@ -403,6 +434,8 @@
 			files = (
 				DA3857D627E2AE2F00F531D1 /* UserInfo.xcdatamodeld in Sources */,
 				DA4747CD27FFAF64009DAF76 /* AddTaskPresenter.swift in Sources */,
+				DAAE5BFE2808A7F80004E1CC /* CategoriesFactory.swift in Sources */,
+				DAAE5BFC2808A7ED0004E1CC /* CategoriesPresenter.swift in Sources */,
 				DA93A02B27C44BE400F6B322 /* TimerInteractor.swift in Sources */,
 				DAD95EB327D17EB90067A653 /* TaskCell.swift in Sources */,
 				DA3857DD27E2B7E200F531D1 /* ConfigPresenter.swift in Sources */,
@@ -415,6 +448,7 @@
 				DA93A03127C44C1400F6B322 /* TimerCoordinator.swift in Sources */,
 				DA40A40027D80E8D00892E10 /* AnalyticsFactory.swift in Sources */,
 				DA93A02D27C44BEC00F6B322 /* TimerPresenter.swift in Sources */,
+				DAAE5BFA2808A7E40004E1CC /* CategoriesInteractor.swift in Sources */,
 				DA8391DD27C8508300071450 /* TasksViewController.swift in Sources */,
 				DA17BFF527BB06BA0047CEBA /* AppDelegate.swift in Sources */,
 				DA8391E327C850B100071450 /* TasksCoordinator.swift in Sources */,
@@ -425,6 +459,7 @@
 				DAEA386D27DFF3CA00152ECE /* LoginFactory.swift in Sources */,
 				DAEA386F27DFF3D400152ECE /* LoginCoodinator.swift in Sources */,
 				DA3857DF27E2B7FC00F531D1 /* ConfigFactory.swift in Sources */,
+				DAAE5C012808AC2D0004E1CC /* CategoriesCell.swift in Sources */,
 				DA40A3FA27D80E5700892E10 /* AnalyticsViewController.swift in Sources */,
 				DA93A02F27C44C0200F6B322 /* TimerFactory.swift in Sources */,
 				DA8391E527C850CE00071450 /* TasksFactory.swift in Sources */,
@@ -439,6 +474,7 @@
 				DA40A3FE27D80E7600892E10 /* AnalyticsPresenter.swift in Sources */,
 				DA3857DB27E2B7D700F531D1 /* ConfigInteractor.swift in Sources */,
 				DA3857D927E2B7CA00F531D1 /* ConfigViewController.swift in Sources */,
+				DAAE5BF82808A7AE0004E1CC /* CategoriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
