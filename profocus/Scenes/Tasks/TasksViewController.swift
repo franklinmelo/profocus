@@ -3,14 +3,14 @@ import Foundation
 import UIKit
 
 protocol TasksDisplaying: AnyObject {
-    func displayTasks(task: [NSManagedObject])
-    func displayFilteredTasks(tasks: [NSManagedObject])
+    func displayTasks(task: [Task])
+    func displayFilteredTasks(tasks: [Task])
 }
 
 final class TasksViewController: UIViewController {
     private var interactor: TasksInteracting?
-    private var tasks: [NSManagedObject] = []
-    private var filteredTasks: [NSManagedObject] = []
+    private var tasks: [Task] = []
+    private var filteredTasks: [Task] = []
     
     private let searchController: UISearchController = {
         $0.searchBar.placeholder = "Busque tarefas"
@@ -107,7 +107,6 @@ final class TasksViewController: UIViewController {
     
     @objc
     private func didTapAddTask() {
-        interactor?.addTask()
         guard let viewController = AddTaskFactory.make() as? AddTaskViewController else { return }
         viewController.delegate = self
         present(viewController, animated: true)
@@ -115,12 +114,12 @@ final class TasksViewController: UIViewController {
 }
 
 extension TasksViewController: TasksDisplaying {
-    func displayTasks(task: [NSManagedObject]) {
+    func displayTasks(task: [Task]) {
         tasks = task
         tableView.reloadData()
     }
     
-    func displayFilteredTasks(tasks: [NSManagedObject]) {
+    func displayFilteredTasks(tasks: [Task]) {
         filteredTasks = tasks
         tableView.reloadData()
     }
@@ -162,7 +161,7 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var task: NSManagedObject
+        var task: Task
         task = isFiltering ? filteredTasks[indexPath.row] : tasks[indexPath.row]
         interactor?.handlerTaskData(task: task)
     }

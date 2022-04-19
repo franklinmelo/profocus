@@ -3,10 +3,9 @@ import Foundation
 import UIKit
 
 protocol TimerInterecting: AnyObject {
-    func getUserInfos()
+    func setTaskTitle()
     func startTimer()
-    func stopTimer(with taskName: String)
-    func openSettings()
+    func stopTimer()
 }
 
 final class TimerInteractor {
@@ -14,9 +13,11 @@ final class TimerInteractor {
     private var timer: Timer?
     private var timerCountSec = 0
     private var timerCountMin = 0
+    private var task: Task?
     
-    init(presenter: TimerPresenting) {
+    init(presenter: TimerPresenting, task: Task) {
         self.presenter = presenter
+        self.task = task
     }
     
     @objc
@@ -31,39 +32,28 @@ final class TimerInteractor {
         presenter?.presentTimer(with: totalTime)
     }
     
-    private func save(taskMin: Int, taskSec: Int, taskName: String) {
+    private func save(taskMin: Int, taskSec: Int) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.taskContainer.viewContext
         
-        let task = Task(context: managedContext)
-        
-        task.timeMin = Int16(taskMin)
-        task.timeSec = Int16(taskSec)
-        task.name = taskName
-        task.createdAt = Date().timeIntervalSince1970
+        let fetchRequest = NSFetchRequest<Task>(entityName: "Task")
+        fetchRequest.predicate = NSPredicate(format: "id = %@", (task?.id?.uuidString ?? ""))
         
         do {
+            let result = try managedContext.fetch(fetchRequest)
+            guard let task = result.first else { return }
+            task.timeMin = Int16(taskMin)
+            task.timeSec = Int16(taskSec)
             try managedContext.save()
         } catch {
-            print("Could not save. \(error)")
+            print("Error on get Tasks")
         }
     }
 }
 
 extension TimerInteractor: TimerInterecting {
-    func getUserInfos() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.userContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<User>(entityName: "User")
-        
-        do {
-            let userData = try managedContext.fetch(fetchRequest)
-            presenter?.presentUserInfos(with: .init(userName: userData.last?.name ?? "Usuário ProFocus",
-                                                    userJob: userData.last?.job ?? ""))
-        } catch {
-            print("Could not fetch. \(error)")
-        }
+    func setTaskTitle() {
+        presenter?.presentTaskTitle(title: task?.name ?? "")
     }
     
     func startTimer() {
@@ -75,18 +65,13 @@ extension TimerInteractor: TimerInterecting {
                                      repeats: true)
     }
     
-    func stopTimer(with taskName: String) {
+    func stopTimer() {
         presenter?.presentStartTimer()
         save(taskMin: timerCountMin,
-             taskSec: timerCountSec,
-             taskName: taskName)
+             taskSec: timerCountSec)
         timer?.invalidate()
         timerCountSec = 0
         timerCountMin = 0
         presenter?.presentTimer(with: "00:00")
-    }
-    
-    func openSettings() {
-        presenter?.presentSettings()
     }
 }

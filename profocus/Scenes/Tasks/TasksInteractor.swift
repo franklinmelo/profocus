@@ -5,15 +5,14 @@ import UIKit
 protocol TasksInteracting: AnyObject {
     func getTasks()
     func deletTask(object: NSManagedObject)
-    func handlerTaskData(task: NSManagedObject)
+    func handlerTaskData(task: Task)
     func filterTasks(for name: String)
-    func addTask()
 }
 
 final class TasksInteractor: TasksInteracting {
     private var presenter: TasksPresenting?
     private var tasks: [Task] = []
-    private var filteredTasks: [NSManagedObject] = []
+    private var filteredTasks: [Task] = []
     
     init(presenter: TasksPresenting) {
         self.presenter = presenter
@@ -49,18 +48,16 @@ final class TasksInteractor: TasksInteracting {
         }
     }
     
-    func handlerTaskData(task: NSManagedObject) {
+    func handlerTaskData(task: Task) {
         presenter?.presentTaskData(with: task)
     }
     
     func filterTasks(for name: String) {
-        filteredTasks = tasks.filter { (task: NSManagedObject) -> Bool in
+        filteredTasks = tasks.filter { (task: Task) -> Bool in
             let taskName = task.value(forKey: "name") as? String ?? ""
             return taskName.lowercased().contains(name.lowercased())
         }
         
         presenter?.presentFilteredTasks(tasks: filteredTasks)
     }
-    
-    func addTask() {}
 }

@@ -53,6 +53,7 @@ final class AddTaskInteractor: AddTaskInteracting {
         let managedContext = appDelegate.taskContainer.viewContext
 
         let task = Task(context: managedContext)
+        task.id = UUID.init()
         task.name = title
         task.createdAt = Date().timeIntervalSince1970
         task.categorie = categories[categorieIntex]

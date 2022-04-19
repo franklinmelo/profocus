@@ -2,9 +2,9 @@ import CoreData
 import Foundation
 
 protocol TasksPresenting: AnyObject {
-    func presentTasks(with task: [NSManagedObject])
-    func presentTaskData(with task: NSManagedObject)
-    func presentFilteredTasks(tasks: [NSManagedObject])
+    func presentTasks(with task: [Task])
+    func presentTaskData(with task: Task)
+    func presentFilteredTasks(tasks: [Task])
 }
 
 final class TasksPresenter: TasksPresenting {
@@ -15,19 +15,15 @@ final class TasksPresenter: TasksPresenting {
         self.coordinator = coordinator
     }
     
-    func presentTasks(with task: [NSManagedObject]) {
+    func presentTasks(with task: [Task]) {
         viewController?.displayTasks(task: task)
     }
     
-    func presentTaskData(with task: NSManagedObject) {
-        let taskName = task.value(forKey: "name") as? String ?? ""
-        let taskMin = task.value(forKey: "timeMin") as? Int ?? 0
-        let taskSec = task.value(forKey: "timeSec") as? Int ?? 0
-        let taskMessage = "O tempo de foco dessa tarefa foi de \(taskMin)min e \(taskSec)sec"
-        coordinator.showTaskInfo(title: taskName, message: taskMessage)
+    func presentTaskData(with task: Task) {
+        coordinator.showTaskTimmer(task: task)
     }
     
-    func presentFilteredTasks(tasks: [NSManagedObject]) {
+    func presentFilteredTasks(tasks: [Task]) {
         viewController?.displayFilteredTasks(tasks: tasks)
     }
 }

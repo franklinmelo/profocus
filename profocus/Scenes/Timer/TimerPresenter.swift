@@ -1,11 +1,10 @@
 import Foundation
 
 protocol TimerPresenting: AnyObject {
-    func presentUserInfos(with model: UserModel)
+    func presentTaskTitle(title: String)
     func presentStartTimer()
     func presentStopTimer()
     func presentTimer(with time: String)
-    func presentSettings()
 }
 
 final class TimerPresenter: TimerPresenting {
@@ -16,8 +15,8 @@ final class TimerPresenter: TimerPresenting {
         self.coordinator = coordinator
     }
     
-    func presentUserInfos(with model: UserModel) {
-        viewController?.displayUserInfos(with: model)
+    func presentTaskTitle(title: String) {
+        viewController?.displayTaskTitle(with: title)
     }
     
     func presentStartTimer() {
@@ -30,9 +29,5 @@ final class TimerPresenter: TimerPresenting {
     
     func presentTimer(with time: String) {
         viewController?.displayUpdateTimer(with: time)
-    }
-    
-    func presentSettings() {
-        coordinator?.openSettingsScreen()
     }
 }
