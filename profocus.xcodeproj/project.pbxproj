@@ -40,6 +40,7 @@
 		DA93A02D27C44BEC00F6B322 /* TimerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A02C27C44BEC00F6B322 /* TimerPresenter.swift */; };
 		DA93A02F27C44C0200F6B322 /* TimerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A02E27C44C0200F6B322 /* TimerFactory.swift */; };
 		DA93A03127C44C1400F6B322 /* TimerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A03027C44C1400F6B322 /* TimerCoordinator.swift */; };
+		DAA0B70C281364BC00070F7F /* DoneTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0B70B281364BC00070F7F /* DoneTaskCell.swift */; };
 		DAAE5BF82808A7AE0004E1CC /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE5BF72808A7AE0004E1CC /* CategoriesViewController.swift */; };
 		DAAE5BFA2808A7E40004E1CC /* CategoriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE5BF92808A7E40004E1CC /* CategoriesInteractor.swift */; };
 		DAAE5BFC2808A7ED0004E1CC /* CategoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE5BFB2808A7ED0004E1CC /* CategoriesPresenter.swift */; };
@@ -93,6 +94,7 @@
 		DA93A02C27C44BEC00F6B322 /* TimerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPresenter.swift; sourceTree = "<group>"; };
 		DA93A02E27C44C0200F6B322 /* TimerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerFactory.swift; sourceTree = "<group>"; };
 		DA93A03027C44C1400F6B322 /* TimerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCoordinator.swift; sourceTree = "<group>"; };
+		DAA0B70B281364BC00070F7F /* DoneTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTaskCell.swift; sourceTree = "<group>"; };
 		DAAE5BF72808A7AE0004E1CC /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		DAAE5BF92808A7E40004E1CC /* CategoriesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesInteractor.swift; sourceTree = "<group>"; };
 		DAAE5BFB2808A7ED0004E1CC /* CategoriesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPresenter.swift; sourceTree = "<group>"; };
@@ -191,10 +193,11 @@
 		DA40A3F827D80E3700892E10 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				DA40A3F927D80E5700892E10 /* AnalyticsViewController.swift */,
+				DA40A3FF27D80E8D00892E10 /* AnalyticsFactory.swift */,
 				DA40A3FB27D80E6D00892E10 /* AnalyticsInteractor.swift */,
 				DA40A3FD27D80E7600892E10 /* AnalyticsPresenter.swift */,
-				DA40A3FF27D80E8D00892E10 /* AnalyticsFactory.swift */,
+				DA40A3F927D80E5700892E10 /* AnalyticsViewController.swift */,
+				DAA0B70A2813649F00070F7F /* Cells */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -230,6 +233,14 @@
 				DAD95EB127D17EA70067A653 /* Cells */,
 			);
 			path = Tasks;
+			sourceTree = "<group>";
+		};
+		DAA0B70A2813649F00070F7F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DAA0B70B281364BC00070F7F /* DoneTaskCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		DAAE5BF62808A77C0004E1CC /* Categories */ = {
@@ -442,6 +453,7 @@
 				DA4747CB27FFAF59009DAF76 /* AddTaskInteractor.swift in Sources */,
 				DA714DE527E3F7DC008C5AD0 /* ConfigCell.swift in Sources */,
 				DAEA386B27DFF3B800152ECE /* LoginPresenter.swift in Sources */,
+				DAA0B70C281364BC00070F7F /* DoneTaskCell.swift in Sources */,
 				DAD7B89327C04E9B0076D4CC /* LoginViewController.swift in Sources */,
 				DAB6300E27E934B7005ACE9B /* ConfigCoordinator.swift in Sources */,
 				DA17BFF927BB06BA0047CEBA /* TimerViewController.swift in Sources */,

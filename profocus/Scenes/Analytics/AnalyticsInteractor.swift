@@ -4,22 +4,14 @@ import Foundation
 import UIKit
 
 protocol AnalyticsInteracting: AnyObject {
+    var tasks: [Task] { get set }
     func getTasks()
 }
 
 final class AnalyticsInteractor: AnalyticsInteracting {
     private var presenter: AnalyticsPresenting?
-    private var tasks: [Task] = []
-    private var totalTime = 0.0
-    
-    private var domTasks: [Task] = []
-    private var segTasks: [Task] = []
-    private var terTasks: [Task] = []
-    private var quaTasks: [Task] = []
-    private var quiTasks: [Task] = []
-    private var sexTasks: [Task] = []
-    private var sabTasks: [Task] = []
-    
+    var tasks: [Task] = []
+    private var categories: Set<Categorie> = []
     
     init(presenter: AnalyticsPresenting) {
         self.presenter = presenter
@@ -37,8 +29,12 @@ final class AnalyticsInteractor: AnalyticsInteracting {
             let minimuDay = Calendar.current.date(byAdding: DateComponents(day: -currentWeekDay), to: Date.now)
             
             tasks = data.filter { convertTimestampToDate(timestamp: $0.createdAt) >= minimuDay ?? Date.now}
-            
-            splitTaskForDay()
+            tasks.forEach {
+                guard let categorie = $0.categorie else { return }
+                categories.insert(categorie)
+            }
+            presenter?.presentTasks()
+            splitTaskForCategory()
         } catch {
             print("Could not fetch. \(error)")
         }
@@ -48,42 +44,20 @@ final class AnalyticsInteractor: AnalyticsInteracting {
         Date(timeIntervalSince1970: timestamp)
     }
     
-    private func splitTaskForDay() {
-        domTasks = tasks.filter { Calendar.current.component(.weekday, from: convertTimestampToDate(timestamp: $0.createdAt)) == 1 }
-        let domTime = countTimeForDay(task: domTasks)
+    private func splitTaskForCategory() {
+        var values: [PieChartDataEntry] = []
         
-        segTasks = tasks.filter { Calendar.current.component(.weekday, from: convertTimestampToDate(timestamp: $0.createdAt)) == 2 }
-        let segTime = countTimeForDay(task: segTasks)
-        
-        terTasks = tasks.filter { Calendar.current.component(.weekday, from: convertTimestampToDate(timestamp: $0.createdAt)) == 3 }
-        let terTime = countTimeForDay(task: terTasks)
-        
-        quaTasks = tasks.filter { Calendar.current.component(.weekday, from: convertTimestampToDate(timestamp: $0.createdAt)) == 4 }
-        let quaTime = countTimeForDay(task: quaTasks)
-        
-        quiTasks = tasks.filter { Calendar.current.component(.weekday, from: convertTimestampToDate(timestamp: $0.createdAt)) == 5 }
-        let quiTime = countTimeForDay(task: quiTasks)
-        
-        sexTasks = tasks.filter { Calendar.current.component(.weekday, from: convertTimestampToDate(timestamp: $0.createdAt)) == 6 }
-        let sexTime = countTimeForDay(task: sexTasks)
-        
-        sabTasks = tasks.filter { Calendar.current.component(.weekday, from: convertTimestampToDate(timestamp: $0.createdAt)) == 7 }
-        let sabTime = countTimeForDay(task: sabTasks)
-        
-        let values: [BarChartDataEntry] = [
-            BarChartDataEntry(x: 0.0, y: domTime),
-            BarChartDataEntry(x: 1.0, y: segTime),
-            BarChartDataEntry(x: 2.0, y: terTime),
-            BarChartDataEntry(x: 3.0, y: quaTime),
-            BarChartDataEntry(x: 4.0, y: quiTime),
-            BarChartDataEntry(x: 5.0, y: sexTime),
-            BarChartDataEntry(x: 6.0, y: sabTime)
-        ]
+        categories.forEach { categorie in
+            let tasks = tasks.filter { $0.categorie == categorie }
+            let tasksTime = countTimeForCateorie(task: tasks)
+            let dataEntry = PieChartDataEntry(value: tasksTime, label: categorie.name)
+            values.append(dataEntry)
+        }
         
         presenter?.presentChartData(values: values)
     }
     
-    private func countTimeForDay(task: [Task]) -> Double {
+    private func countTimeForCateorie(task: [Task]) -> Double {
         if !task.isEmpty {
             var totalMin = 0.0
             var totalSec = 0.0
