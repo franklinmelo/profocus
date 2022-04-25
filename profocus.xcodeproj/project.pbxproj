@@ -46,6 +46,11 @@
 		DAAE5BFC2808A7ED0004E1CC /* CategoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE5BFB2808A7ED0004E1CC /* CategoriesPresenter.swift */; };
 		DAAE5BFE2808A7F80004E1CC /* CategoriesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE5BFD2808A7F80004E1CC /* CategoriesFactory.swift */; };
 		DAAE5C012808AC2D0004E1CC /* CategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE5C002808AC2D0004E1CC /* CategoriesCell.swift */; };
+		DAAEA20628175F430087D881 /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAEA20528175F430087D881 /* TaskDetailsViewController.swift */; };
+		DAAEA20828175F500087D881 /* TaskDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAEA20728175F500087D881 /* TaskDetailsInteractor.swift */; };
+		DAAEA20A28175F5B0087D881 /* TaskDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAEA20928175F5B0087D881 /* TaskDetailsPresenter.swift */; };
+		DAAEA20C28175F700087D881 /* TaskDetailsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAEA20B28175F700087D881 /* TaskDetailsFactory.swift */; };
+		DAAEA20E281767D10087D881 /* AnalyticsCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAEA20D281767D10087D881 /* AnalyticsCoodinator.swift */; };
 		DAB6300C27E9323D005ACE9B /* ConfigCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6300B27E9323D005ACE9B /* ConfigCellModel.swift */; };
 		DAB6300E27E934B7005ACE9B /* ConfigCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6300D27E934B7005ACE9B /* ConfigCoordinator.swift */; };
 		DAD7B89327C04E9B0076D4CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7B89227C04E9B0076D4CC /* LoginViewController.swift */; };
@@ -100,6 +105,11 @@
 		DAAE5BFB2808A7ED0004E1CC /* CategoriesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPresenter.swift; sourceTree = "<group>"; };
 		DAAE5BFD2808A7F80004E1CC /* CategoriesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesFactory.swift; sourceTree = "<group>"; };
 		DAAE5C002808AC2D0004E1CC /* CategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCell.swift; sourceTree = "<group>"; };
+		DAAEA20528175F430087D881 /* TaskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewController.swift; sourceTree = "<group>"; };
+		DAAEA20728175F500087D881 /* TaskDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsInteractor.swift; sourceTree = "<group>"; };
+		DAAEA20928175F5B0087D881 /* TaskDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsPresenter.swift; sourceTree = "<group>"; };
+		DAAEA20B28175F700087D881 /* TaskDetailsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsFactory.swift; sourceTree = "<group>"; };
+		DAAEA20D281767D10087D881 /* AnalyticsCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsCoodinator.swift; sourceTree = "<group>"; };
 		DAB6300B27E9323D005ACE9B /* ConfigCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigCellModel.swift; sourceTree = "<group>"; };
 		DAB6300D27E934B7005ACE9B /* ConfigCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigCoordinator.swift; sourceTree = "<group>"; };
 		DAD7B89227C04E9B0076D4CC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +203,7 @@
 		DA40A3F827D80E3700892E10 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
+				DAAEA20D281767D10087D881 /* AnalyticsCoodinator.swift */,
 				DA40A3FF27D80E8D00892E10 /* AnalyticsFactory.swift */,
 				DA40A3FB27D80E6D00892E10 /* AnalyticsInteractor.swift */,
 				DA40A3FD27D80E7600892E10 /* AnalyticsPresenter.swift */,
@@ -263,6 +274,17 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		DAAEA20428175F270087D881 /* TaskDetails */ = {
+			isa = PBXGroup;
+			children = (
+				DAAEA20528175F430087D881 /* TaskDetailsViewController.swift */,
+				DAAEA20728175F500087D881 /* TaskDetailsInteractor.swift */,
+				DAAEA20928175F5B0087D881 /* TaskDetailsPresenter.swift */,
+				DAAEA20B28175F700087D881 /* TaskDetailsFactory.swift */,
+			);
+			path = TaskDetails;
+			sourceTree = "<group>";
+		};
 		DAD7B88E27C04C670076D4CC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +304,7 @@
 				DA3857D727E2B7B200F531D1 /* Config */,
 				DAD7B89127C04E870076D4CC /* Login */,
 				DA13CD0A27C6FCD80084FAB8 /* Models */,
+				DAAEA20428175F270087D881 /* TaskDetails */,
 				DA8391DB27C8506300071450 /* Tasks */,
 				DAD7B89027C04E6D0076D4CC /* Timer */,
 			);
@@ -443,13 +466,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAAEA20828175F500087D881 /* TaskDetailsInteractor.swift in Sources */,
 				DA3857D627E2AE2F00F531D1 /* UserInfo.xcdatamodeld in Sources */,
 				DA4747CD27FFAF64009DAF76 /* AddTaskPresenter.swift in Sources */,
 				DAAE5BFE2808A7F80004E1CC /* CategoriesFactory.swift in Sources */,
+				DAAEA20C28175F700087D881 /* TaskDetailsFactory.swift in Sources */,
 				DAAE5BFC2808A7ED0004E1CC /* CategoriesPresenter.swift in Sources */,
 				DA93A02B27C44BE400F6B322 /* TimerInteractor.swift in Sources */,
 				DAD95EB327D17EB90067A653 /* TaskCell.swift in Sources */,
+				DAAEA20E281767D10087D881 /* AnalyticsCoodinator.swift in Sources */,
 				DA3857DD27E2B7E200F531D1 /* ConfigPresenter.swift in Sources */,
+				DAAEA20A28175F5B0087D881 /* TaskDetailsPresenter.swift in Sources */,
 				DA4747CB27FFAF59009DAF76 /* AddTaskInteractor.swift in Sources */,
 				DA714DE527E3F7DC008C5AD0 /* ConfigCell.swift in Sources */,
 				DAEA386B27DFF3B800152ECE /* LoginPresenter.swift in Sources */,
@@ -483,6 +510,7 @@
 				DA40A3FC27D80E6D00892E10 /* AnalyticsInteractor.swift in Sources */,
 				DA4747C927FFAF49009DAF76 /* AddTaskViewController.swift in Sources */,
 				DA8391DF27C8509500071450 /* TasksInteractor.swift in Sources */,
+				DAAEA20628175F430087D881 /* TaskDetailsViewController.swift in Sources */,
 				DA40A3FE27D80E7600892E10 /* AnalyticsPresenter.swift in Sources */,
 				DA3857DB27E2B7D700F531D1 /* ConfigInteractor.swift in Sources */,
 				DA3857D927E2B7CA00F531D1 /* ConfigViewController.swift in Sources */,

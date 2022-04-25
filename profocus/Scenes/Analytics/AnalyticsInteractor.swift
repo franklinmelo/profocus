@@ -6,6 +6,8 @@ import UIKit
 protocol AnalyticsInteracting: AnyObject {
     var tasks: [Task] { get set }
     func getTasks()
+    func deleteTask(task: Task)
+    func selectTask(task: Task)
 }
 
 final class AnalyticsInteractor: AnalyticsInteracting {
@@ -24,11 +26,7 @@ final class AnalyticsInteractor: AnalyticsInteracting {
         let fetchRequest = NSFetchRequest<Task>(entityName: "Task")
         
         do {
-            let data = try managedContext.fetch(fetchRequest)
-            let currentWeekDay = Calendar.current.component(.weekday, from: Date.now)
-            let minimuDay = Calendar.current.date(byAdding: DateComponents(day: -currentWeekDay), to: Date.now)
-            
-            tasks = data.filter { convertTimestampToDate(timestamp: $0.createdAt) >= minimuDay ?? Date.now}
+            tasks = try managedContext.fetch(fetchRequest)
             tasks.forEach {
                 guard let categorie = $0.categorie else { return }
                 categories.insert(categorie)
@@ -40,15 +38,29 @@ final class AnalyticsInteractor: AnalyticsInteracting {
         }
     }
     
-    private func convertTimestampToDate(timestamp: TimeInterval) -> Date {
-        Date(timeIntervalSince1970: timestamp)
+    func deleteTask(task: Task) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.taskContainer.viewContext
+        
+        managedContext.delete(task)
+        
+        do {
+            try managedContext.save()
+            getTasks()
+        } catch {
+            print("Could not delete task. \(error)")
+        }
+    }
+    
+    func selectTask(task: Task) {
+        presenter?.presentTaskDetails(with: task)
     }
     
     private func splitTaskForCategory() {
         var values: [PieChartDataEntry] = []
         
         categories.forEach { categorie in
-            let tasks = tasks.filter { $0.categorie == categorie }
+            let tasks = tasks.filter { $0.categorie?.name == categorie.name }
             let tasksTime = countTimeForCateorie(task: tasks)
             let dataEntry = PieChartDataEntry(value: tasksTime, label: categorie.name)
             values.append(dataEntry)

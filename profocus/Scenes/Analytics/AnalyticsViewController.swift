@@ -18,7 +18,7 @@ final class AnalyticsViewController: UIViewController {
     
     private lazy var descriptionLabel: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "Confira suas tarefas concluídas recentemente e o tempo que passou focado nelas"
+        $0.text = "Confira suas tarefas concluídas na última semana e o tempo que passou focado nelas"
         $0.numberOfLines = 0
         $0.font = UIFont.boldSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .title3).pointSize)
         return $0
@@ -97,7 +97,7 @@ final class AnalyticsViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    func setChartData(with entries: [ChartDataEntry]) {
+    private func setChartData(with entries: [ChartDataEntry]) {
         let pieChartDataSet = PieChartDataSet(entries: entries, label: "Categorias")
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         var colors: [UIColor] = []
@@ -114,6 +114,18 @@ final class AnalyticsViewController: UIViewController {
         pieChartDataSet.colors = colors
         chartView.data = pieChartData
     }
+    
+    private func showDeleteAlert(title: String, message: String, task: Task) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Sim", style: .destructive) { [weak self] _ in
+            self?.interactor?.deleteTask(task: task)
+        }
+        let cancelAction = UIAlertAction(title: "Não", style: .cancel)
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+    }
 }
 
 extension AnalyticsViewController: AnalyticsDisplay {
@@ -127,7 +139,16 @@ extension AnalyticsViewController: AnalyticsDisplay {
     }
 }
 
-extension AnalyticsViewController: UITableViewDelegate {}
+extension AnalyticsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        UISwipeActionsConfiguration(actions: [.init(style: .destructive, title: "Apagar", handler: { [weak self] _, _, _ in
+            guard let task = self?.interactor?.tasks[indexPath.row] else { return }
+            self?.showDeleteAlert(title: "Deseja realmente apagar essa tarefa?",
+                                  message: "Uma vez apagado a ação não poderá ser desfeita",
+                                  task: task)
+        })])
+    }
+}
 
 extension AnalyticsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -147,5 +168,10 @@ extension AnalyticsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         48
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let task = interactor?.tasks[indexPath.row] else { return }
+        interactor?.selectTask(task: task)
     }
 }
