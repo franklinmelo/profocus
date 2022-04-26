@@ -59,6 +59,7 @@ final class AddTaskInteractor: AddTaskInteracting {
         task.categorie = categories[categorieIntex]
         task.timeMin = Int16(0)
         task.timeSec = Int16(0)
+        task.completed = false
 
         do {
             try managedContext.save()

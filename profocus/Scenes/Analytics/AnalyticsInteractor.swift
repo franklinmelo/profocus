@@ -26,7 +26,8 @@ final class AnalyticsInteractor: AnalyticsInteracting {
         let fetchRequest = NSFetchRequest<Task>(entityName: "Task")
         
         do {
-            tasks = try managedContext.fetch(fetchRequest)
+            let data = try managedContext.fetch(fetchRequest)
+            tasks = data.filter({ $0.completed == true })
             tasks.forEach {
                 guard let categorie = $0.categorie else { return }
                 categories.insert(categorie)

@@ -9,11 +9,6 @@ protocol TimerPresenting: AnyObject {
 
 final class TimerPresenter: TimerPresenting {
     weak var viewController: TimerDisplaying?
-    private var coordinator: TimerCoordinating?
-    
-    init(coordinator: TimerCoordinating) {
-        self.coordinator = coordinator
-    }
     
     func presentTaskTitle(title: String) {
         viewController?.displayTaskTitle(with: title)

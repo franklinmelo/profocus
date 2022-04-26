@@ -39,7 +39,6 @@
 		DA93A02B27C44BE400F6B322 /* TimerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A02A27C44BE400F6B322 /* TimerInteractor.swift */; };
 		DA93A02D27C44BEC00F6B322 /* TimerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A02C27C44BEC00F6B322 /* TimerPresenter.swift */; };
 		DA93A02F27C44C0200F6B322 /* TimerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A02E27C44C0200F6B322 /* TimerFactory.swift */; };
-		DA93A03127C44C1400F6B322 /* TimerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93A03027C44C1400F6B322 /* TimerCoordinator.swift */; };
 		DAA0B70C281364BC00070F7F /* DoneTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0B70B281364BC00070F7F /* DoneTaskCell.swift */; };
 		DAAE5BF82808A7AE0004E1CC /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE5BF72808A7AE0004E1CC /* CategoriesViewController.swift */; };
 		DAAE5BFA2808A7E40004E1CC /* CategoriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAE5BF92808A7E40004E1CC /* CategoriesInteractor.swift */; };
@@ -98,7 +97,6 @@
 		DA93A02A27C44BE400F6B322 /* TimerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerInteractor.swift; sourceTree = "<group>"; };
 		DA93A02C27C44BEC00F6B322 /* TimerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPresenter.swift; sourceTree = "<group>"; };
 		DA93A02E27C44C0200F6B322 /* TimerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerFactory.swift; sourceTree = "<group>"; };
-		DA93A03027C44C1400F6B322 /* TimerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCoordinator.swift; sourceTree = "<group>"; };
 		DAA0B70B281364BC00070F7F /* DoneTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTaskCell.swift; sourceTree = "<group>"; };
 		DAAE5BF72808A7AE0004E1CC /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		DAAE5BF92808A7E40004E1CC /* CategoriesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesInteractor.swift; sourceTree = "<group>"; };
@@ -257,11 +255,11 @@
 		DAAE5BF62808A77C0004E1CC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				DAAE5BFF2808AC1D0004E1CC /* Cells */,
-				DAAE5BF72808A7AE0004E1CC /* CategoriesViewController.swift */,
+				DAAE5BFD2808A7F80004E1CC /* CategoriesFactory.swift */,
 				DAAE5BF92808A7E40004E1CC /* CategoriesInteractor.swift */,
 				DAAE5BFB2808A7ED0004E1CC /* CategoriesPresenter.swift */,
-				DAAE5BFD2808A7F80004E1CC /* CategoriesFactory.swift */,
+				DAAE5BF72808A7AE0004E1CC /* CategoriesViewController.swift */,
+				DAAE5BFF2808AC1D0004E1CC /* Cells */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -314,7 +312,6 @@
 		DAD7B89027C04E6D0076D4CC /* Timer */ = {
 			isa = PBXGroup;
 			children = (
-				DA93A03027C44C1400F6B322 /* TimerCoordinator.swift */,
 				DA93A02E27C44C0200F6B322 /* TimerFactory.swift */,
 				DA93A02A27C44BE400F6B322 /* TimerInteractor.swift */,
 				DA93A02C27C44BEC00F6B322 /* TimerPresenter.swift */,
@@ -484,7 +481,6 @@
 				DAD7B89327C04E9B0076D4CC /* LoginViewController.swift in Sources */,
 				DAB6300E27E934B7005ACE9B /* ConfigCoordinator.swift in Sources */,
 				DA17BFF927BB06BA0047CEBA /* TimerViewController.swift in Sources */,
-				DA93A03127C44C1400F6B322 /* TimerCoordinator.swift in Sources */,
 				DA40A40027D80E8D00892E10 /* AnalyticsFactory.swift in Sources */,
 				DA93A02D27C44BEC00F6B322 /* TimerPresenter.swift in Sources */,
 				DAAE5BFA2808A7E40004E1CC /* CategoriesInteractor.swift in Sources */,

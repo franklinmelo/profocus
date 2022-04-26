@@ -18,7 +18,7 @@ final class AnalyticsViewController: UIViewController {
     
     private lazy var descriptionLabel: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "Confira suas tarefas concluídas na última semana e o tempo que passou focado nelas"
+        $0.text = "Confira suas tarefas concluídas e o tempo que passou focado nelas"
         $0.numberOfLines = 0
         $0.font = UIFont.boldSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .title3).pointSize)
         return $0

@@ -65,6 +65,7 @@ final class CategoriesViewController: UIViewController {
     }
     
     private func configureViews() {
+        view.backgroundColor = .systemBackground
         tableView.tableHeaderView = UIView()
         searchController.searchResultsUpdater = self
     }

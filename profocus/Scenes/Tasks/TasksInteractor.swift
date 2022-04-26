@@ -26,7 +26,8 @@ final class TasksInteractor: TasksInteracting {
         let fetchRequest = NSFetchRequest<Task>(entityName: "Task")
         
         do {
-            tasks = try managedContext.fetch(fetchRequest)
+            let data = try managedContext.fetch(fetchRequest)
+            tasks = data.filter({ $0.completed == false })
             presenter?.presentTasks(with: tasks)
         } catch {
             print("Could not fetch. \(error)")

@@ -113,8 +113,8 @@ final class TimerViewController: UIViewController {
     @objc
     private func didTapStop() {
         let alertAction: (UIAlertAction) -> Void = {_ in
-                self.interactor?.stopTimer()
-                self.dismiss(animated: true)
+            self.interactor?.stopTimer()
+            self.navigationController?.popViewController(animated: true)
         }
         let alert = createAlert(title: "Deseja realmente parar?",
                                 confirmActionTitle: "Sim",

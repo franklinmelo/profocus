@@ -44,6 +44,7 @@ final class TimerInteractor {
             guard let task = result.first else { return }
             task.timeMin = Int16(taskMin)
             task.timeSec = Int16(taskSec)
+            task.completed = true
             try managedContext.save()
         } catch {
             print("Error on get Tasks")

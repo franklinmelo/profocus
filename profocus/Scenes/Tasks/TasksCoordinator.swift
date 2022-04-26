@@ -10,7 +10,7 @@ final class TasksCoordinator: TasksCoordinating {
     
     func showTaskTimmer(task: Task) {
         let navigation = viewController?.navigationController
-        let timmerVC = UINavigationController(rootViewController: TimerFactory().make(task: task))
-        navigation?.present(timmerVC, animated: true)
+        let timmerVC = TimerFactory().make(task: task)
+        navigation?.pushViewController(timmerVC, animated: true)
     }
 }

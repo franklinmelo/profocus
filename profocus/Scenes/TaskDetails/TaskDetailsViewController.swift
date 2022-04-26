@@ -89,11 +89,11 @@ final class TaskDetailsViewController: UIViewController {
     }
     
     private func configureViews() {
-        
+        view.backgroundColor = .systemBackground
     }
     
     private func setupNavigation() {
-        title = "Informações sobre a tarefa"
+        title = "Informações da tarefa"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
