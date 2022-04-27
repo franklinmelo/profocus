@@ -54,7 +54,8 @@ final class TimerInteractor {
 
 extension TimerInteractor: TimerInterecting {
     func setTaskTitle() {
-        presenter?.presentTaskTitle(title: task?.name ?? "")
+        guard let task = task else { return }
+        presenter?.presentTaskInfo(with: task)
     }
     
     func startTimer() {

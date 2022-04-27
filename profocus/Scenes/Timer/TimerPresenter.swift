@@ -1,7 +1,7 @@
 import Foundation
 
 protocol TimerPresenting: AnyObject {
-    func presentTaskTitle(title: String)
+    func presentTaskInfo(with task: Task)
     func presentStartTimer()
     func presentStopTimer()
     func presentTimer(with time: String)
@@ -10,8 +10,8 @@ protocol TimerPresenting: AnyObject {
 final class TimerPresenter: TimerPresenting {
     weak var viewController: TimerDisplaying?
     
-    func presentTaskTitle(title: String) {
-        viewController?.displayTaskTitle(with: title)
+    func presentTaskInfo(with task: Task) {
+        viewController?.displayTaskInfos(with: task)
     }
     
     func presentStartTimer() {

@@ -1,7 +1,7 @@
 import UIKit
 
 protocol TimerDisplaying: AnyObject {
-    func displayTaskTitle(with title: String)
+    func displayTaskInfos(with task: Task)
     func displayStartTimer()
     func displayStopTimer()
     func displayUpdateTimer(with time: String)
@@ -21,6 +21,12 @@ final class TimerViewController: UIViewController {
     private lazy var timerTitle: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.font = UIFont.preferredFont(forTextStyle: .title1)
+        return $0
+    }(UILabel())
+    
+    private lazy var timerCategorie: UILabel = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.font = UIFont.boldSystemFont(ofSize: 28)
         return $0
     }(UILabel())
     
@@ -59,6 +65,7 @@ final class TimerViewController: UIViewController {
     
     private func setupViews() {
         timerContainer.addSubview(timerTitle)
+        timerContainer.addSubview(timerCategorie)
         timerContainer.addSubview(timerClock)
         timerContainer.addSubview(timerButton)
         view.addSubview(timerContainer)
@@ -68,6 +75,12 @@ final class TimerViewController: UIViewController {
         NSLayoutConstraint.activate([
             timerTitle.centerXAnchor.constraint(equalTo: timerContainer.centerXAnchor),
             timerTitle.topAnchor.constraint(equalTo: timerContainer.topAnchor, constant: 24)
+        ])
+        
+        NSLayoutConstraint.activate([
+            timerCategorie.centerXAnchor.constraint(equalTo: timerContainer.centerXAnchor),
+            timerCategorie.topAnchor.constraint(equalTo: timerTitle.bottomAnchor, constant: 16)
+            
         ])
         
         NSLayoutConstraint.activate([
@@ -143,8 +156,9 @@ final class TimerViewController: UIViewController {
 }
 
 extension TimerViewController: TimerDisplaying {
-    func displayTaskTitle(with title: String) {
-        timerTitle.text = title
+    func displayTaskInfos(with task: Task) {
+        timerTitle.text = task.name
+        timerCategorie.text = task.categorie?.name
     }
     
     func displayStartTimer() {
