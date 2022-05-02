@@ -65,6 +65,7 @@ extension ConfigInteractor: ConfigInteracting {
         do {
             args?.user?.name = name
             try args?.managedContext.save()
+            getUserData()
         } catch {
             print("Could not fetch. \(error)")
         }
@@ -76,6 +77,7 @@ extension ConfigInteractor: ConfigInteracting {
         do {
             args?.user?.job = job
             try args?.managedContext.save()
+            getUserData()
         } catch {
             print("Could not fetch. \(error)")
         }
