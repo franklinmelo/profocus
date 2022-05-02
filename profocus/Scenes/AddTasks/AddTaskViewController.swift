@@ -135,7 +135,6 @@ final class AddTaskViewController: UIViewController {
             Layout.container.bottonContraint,
             containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            containerView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2)
         ])
         
         
@@ -177,6 +176,7 @@ final class AddTaskViewController: UIViewController {
             cancelButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -12),
             cancelButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 12),
             cancelButton.heightAnchor.constraint(equalToConstant: 35),
+            cancelButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -16)
         ])
     }
     
