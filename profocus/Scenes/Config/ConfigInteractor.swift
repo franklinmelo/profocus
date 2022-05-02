@@ -22,14 +22,15 @@ final class ConfigInteractor {
         self.presenter = presenter
     }
     
-    private func getUserInfo() -> (user: [User], managedContext: NSManagedObjectContext)? {
+    private func getUserInfo() -> (user: User?, managedContext: NSManagedObjectContext)? {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
         let managedContext = appDelegate.userContainer.viewContext
         let fetchRequest = NSFetchRequest<User>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "id = %@", "DEFAULT")
         
         do {
             let user = try managedContext.fetch(fetchRequest)
-            return (user, managedContext)
+            return (user.first, managedContext)
         } catch {
             print("Could not fetch. \(error)")
             return nil
@@ -62,7 +63,7 @@ extension ConfigInteractor: ConfigInteracting {
         let args = getUserInfo()
         
         do {
-            args?.user.last?.name = name
+            args?.user?.name = name
             try args?.managedContext.save()
         } catch {
             print("Could not fetch. \(error)")
@@ -73,7 +74,7 @@ extension ConfigInteractor: ConfigInteracting {
         let args = getUserInfo()
         
         do {
-            args?.user.last?.job = job
+            args?.user?.job = job
             try args?.managedContext.save()
         } catch {
             print("Could not fetch. \(error)")
@@ -81,8 +82,9 @@ extension ConfigInteractor: ConfigInteracting {
     }
     
     func getUserData() {
-        let user = getUserInfo()?.user.first
-        presenter?.presentUserData(with: .init(userName: user?.name ?? "Usuário Profocus",
-                                               userJob: user?.job ?? "Função"))
+        let user = getUserInfo()?.user
+        guard let userName = user?.name, let userJob = user?.job else { return }
+        presenter?.presentUserData(with: .init(userName: userName,
+                                               userJob: userJob))
     }
 }
