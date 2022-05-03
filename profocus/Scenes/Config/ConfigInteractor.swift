@@ -8,6 +8,7 @@ protocol ConfigInteracting: AnyObject {
     func setUserName(with name: String)
     func setUserJob(with job: String)
     func getUserData()
+    func setUserImage(with image: Data)
 }
 
 final class ConfigInteractor {
@@ -50,7 +51,7 @@ extension ConfigInteractor: ConfigInteracting {
         case .editJob:
             presenter?.presentEditJobAlert()
         case .editPhoto:
-            print("editPhoto")
+            presenter?.presentImagePicker()
         case .editCategories:
             presenter?.presentCategoriesScreen()
         case .logout:
@@ -85,8 +86,23 @@ extension ConfigInteractor: ConfigInteracting {
     
     func getUserData() {
         let user = getUserInfo()?.user
-        guard let userName = user?.name, let userJob = user?.job else { return }
+        guard let userName = user?.name,
+              let userJob = user?.job else { return }
+        let userPhoto = user?.photo
         presenter?.presentUserData(with: .init(userName: userName,
-                                               userJob: userJob))
+                                               userJob: userJob,
+                                               userPhoto: userPhoto))
+    }
+    
+    func setUserImage(with image: Data) {
+        let args = getUserInfo()
+        
+        do {
+            args?.user?.photo = image
+            try args?.managedContext.save()
+            getUserData()
+        } catch {
+            print("Could not fetch. \(error)")
+        }
     }
 }

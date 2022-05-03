@@ -6,6 +6,7 @@ protocol ConfigDisplaying: AnyObject {
     func displayEditNameAlert(title: String, message: String)
     func displayEditJobAlert(title: String, message: String)
     func displayUserData(with model: UserModel)
+    func displayImagePicker()
 }
 
 final class ConfigViewController: UIViewController {
@@ -158,6 +159,25 @@ extension ConfigViewController: ConfigDisplaying {
     func displayUserData(with model: UserModel) {
         userName.text = model.userName
         userJob.text = model.userJob
+        guard let imageData = model.userPhoto else { return }
+        avatarImage.image = UIImage(data: imageData)
+    }
+    
+    func displayImagePicker() {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = .photoLibrary
+        present(picker, animated: true)
+    }
+}
+
+extension ConfigViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let userPickedImage = info[.editedImage] as? UIImage,
+        let imageData = userPickedImage.pngData() else { return }
+        interactor?.setUserImage(with: imageData)
+        picker.dismiss(animated: true)
     }
 }
 

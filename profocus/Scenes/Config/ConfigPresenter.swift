@@ -7,6 +7,7 @@ protocol ConfigPresenting: AnyObject {
     func presentEditJobAlert()
     func presentUserData(with model: UserModel)
     func presentCategoriesScreen()
+    func presentImagePicker()
 }
 
 final class ConfigPresenter {
@@ -41,5 +42,9 @@ extension ConfigPresenter: ConfigPresenting {
     
     func presentCategoriesScreen() {
         coordinator?.openCategoriesScreen()
+    }
+    
+    func presentImagePicker() {
+        viewController?.displayImagePicker()
     }
 }

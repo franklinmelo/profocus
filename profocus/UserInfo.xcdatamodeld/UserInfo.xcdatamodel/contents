@@ -4,7 +4,7 @@
         <attribute name="id" optional="YES" attributeType="String" defaultValueString="DEFAULT"/>
         <attribute name="job" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="photo" optional="YES" attributeType="URI"/>
+        <attribute name="photo" optional="YES" attributeType="Binary"/>
     </entity>
     <elements>
         <element name="User" positionX="-63" positionY="-18" width="128" height="89"/>

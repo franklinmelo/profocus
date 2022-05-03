@@ -40,7 +40,7 @@ final class LoginInteractor: NSObject, LoginInteracting {
         let user = User(context: managedContext)
         user.name = userName
         user.job = "Função"
-        user.photo = URL(string: "")
+        user.photo = nil
         
         do {
             try managedContext.save()
