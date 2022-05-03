@@ -59,6 +59,7 @@ extension TimerInteractor: TimerInterecting {
     }
     
     func startTimer() {
+        UIApplication.shared.isIdleTimerDisabled = true
         presenter?.presentStopTimer()
         timer = Timer.scheduledTimer(timeInterval: 1.0,
                                      target: self,
@@ -68,6 +69,7 @@ extension TimerInteractor: TimerInterecting {
     }
     
     func stopTimer() {
+        UIApplication.shared.isIdleTimerDisabled = false
         presenter?.presentStartTimer()
         save(taskMin: timerCountMin,
              taskSec: timerCountSec)

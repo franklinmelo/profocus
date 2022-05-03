@@ -5,7 +5,6 @@ protocol PresentationDelegate: AnyObject {
     func didDismiss()
 }
 
-
 protocol AddTaskDisplaing: AnyObject {}
 
 private extension AddTaskViewController.Layout {
