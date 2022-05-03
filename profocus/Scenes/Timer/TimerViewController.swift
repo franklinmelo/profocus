@@ -5,6 +5,7 @@ protocol TimerDisplaying: AnyObject {
     func displayStartTimer()
     func displayStopTimer()
     func displayUpdateTimer(with time: String)
+    func displayAlertBackground()
 }
 
 final class TimerViewController: UIViewController {
@@ -112,7 +113,7 @@ final class TimerViewController: UIViewController {
     @objc
     private func didTapStart() {
         let alert = createAlert(title: "Hora de focar!",
-                                message: "Deseja iniciar o contador de tempo da sua tarefa?",
+                                message: "Deseja iniciar o contador de tempo da sua tarefa? Uma vez iniciado não poderá ser pausado e caso o app seja minimizado ou fechado o contador ira parar.",
                                 cancelActionTitle: "Cancelar")
         
         let alertAction = UIAlertAction(title: "Iniciar", style: .default) { [weak self] _ in
@@ -141,7 +142,7 @@ final class TimerViewController: UIViewController {
                              message: String? = nil,
                              confirmActionTitle: String? = nil,
                              confirmActionHandler: ((UIAlertAction) -> Void)? = nil,
-                             cancelActionTitle: String) -> UIAlertController {
+                             cancelActionTitle: String?) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         if let confirmActionTitle = confirmActionTitle {
@@ -149,8 +150,10 @@ final class TimerViewController: UIViewController {
             alert.addAction(confirmAction)
         }
         
-        let cancelAction = UIAlertAction(title: cancelActionTitle, style: .cancel, handler: nil)
-        alert.addAction(cancelAction)
+        if let cancelTitle = cancelActionTitle {
+            let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel, handler: nil)
+            alert.addAction(cancelAction)
+        }
         return alert
     }
 }
@@ -177,5 +180,16 @@ extension TimerViewController: TimerDisplaying {
     
     func displayUpdateTimer(with time: String) {
         timerClock.text = time
+    }
+    
+    func displayAlertBackground() {
+        let alert = createAlert(title: "Ops!",
+                                message: "O contador de tempo da sua tarefa foi parado pois você saiu do App e desviou o foco",
+                                confirmActionTitle: "Ok",
+                                confirmActionHandler: { [weak self] _ in
+            self?.navigationController?.popToRootViewController(animated: true)
+        },
+                                cancelActionTitle: nil)
+        present(alert, animated: true)
     }
 }

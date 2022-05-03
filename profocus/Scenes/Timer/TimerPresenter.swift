@@ -5,6 +5,7 @@ protocol TimerPresenting: AnyObject {
     func presentStartTimer()
     func presentStopTimer()
     func presentTimer(with time: String)
+    func presentAlertBackground()
 }
 
 final class TimerPresenter: TimerPresenting {
@@ -24,5 +25,9 @@ final class TimerPresenter: TimerPresenting {
     
     func presentTimer(with time: String) {
         viewController?.displayUpdateTimer(with: time)
+    }
+    
+    func presentAlertBackground() {
+        viewController?.displayAlertBackground()
     }
 }

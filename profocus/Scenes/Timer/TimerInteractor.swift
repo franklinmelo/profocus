@@ -14,10 +14,23 @@ final class TimerInteractor {
     private var timerCountSec = 0
     private var timerCountMin = 0
     private var task: Task?
+    private var notificationCenter: NotificationCenter
     
-    init(presenter: TimerPresenting, task: Task) {
+    init(presenter: TimerPresenting, task: Task, notificationCenter: NotificationCenter = NotificationCenter.default) {
         self.presenter = presenter
         self.task = task
+        self.notificationCenter = notificationCenter
+        addNotificationObserver()
+    }
+    
+    private func addNotificationObserver() {
+        notificationCenter.addObserver(self, selector: #selector(enterInBackground), name: UIApplication.willResignActiveNotification, object: nil)
+    }
+    
+    @objc
+    private func enterInBackground() {
+        stopTimer()
+        presenter?.presentAlertBackground()
     }
     
     @objc
