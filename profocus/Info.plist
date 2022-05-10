@@ -7,7 +7,7 @@
 		<key>UIImageName</key>
 		<string>Launch</string>
 		<key>UIColorName</key>
-		<string>Launch-BG</string>
+		<string>LaunchBG</string>
 		<key>UIImageRespectsSafeAreaInsets</key>
 		<false/>
 	</dict>
